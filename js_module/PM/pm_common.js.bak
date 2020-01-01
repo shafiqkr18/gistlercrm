@@ -1,0 +1,1859 @@
+var _lease = {}, _contact = {}, _account = {}, _workorder = {}, _servicesprovider = {};
+
+//_lease
+_lease["paymentmode"]={
+  1: "Cash",
+  2: "Bank Transfer",
+  3: "Cheque",
+  4: "Others",
+};
+_lease["depositheldby"]={
+  1: "Landlord",
+  2: "Property Management"
+};
+_lease["ejaristatus"]={
+  1: "Active",
+  2: "Inactive"
+};
+_lease["paymentterm"]={
+  1: "Semi-Annually",
+  2: "Annually"
+};
+_lease["sourceoftenancy"]={
+  1: "Landlord",
+  2: "Tenant"
+};
+_lease["reminder"]={
+  1:"Same Day",
+  2:"Day Before",
+  3:"Three Days",
+  4:"One Week",
+  5:"Fifteen Days",
+  6:"One Month",
+  7:"Two Month",
+  8:"Three Month"
+};
+
+//_contact
+_contact["title"] = {
+  1: "Sheikh",
+  2: "Engr.",
+  3: "Dr."
+};
+_contact["salutation"] = {
+  1: "Mr.",
+  2: "Ms.",
+  3: "Mrs."
+};
+_contact["nationality"] = {};
+_contact["countrycode"] = {};
+
+//_servicesprovider
+_servicesprovider["type"] = {
+  1: "Maintenance",
+  2: "Pest Control",
+  3: "Interior Decoration",
+  4: "Landscaping"
+};
+
+_servicesprovider["subtype"] = {
+  1: {
+    1: "Electrical",
+    2: "Plumbing",
+    3: "Painting",
+    4: "Airconditioning"
+  },
+  2: {
+    1: "Rodent Removal",
+    2: "Bedbugs Removal",
+    3: "Pesticidal Services",
+    4: "Termite Removal",
+  },
+  3: {
+    1: "Consultation",
+    2: "Remodeling",
+    3: "Room Review"
+  },
+  4: {
+    1: "Consultation",
+    2: "Hardscaping and Construction",
+    3: "Landscape Maintenance",
+    4: "Design Services"
+  }
+};
+
+_servicesprovider["maintenance"] = {
+  1: "Electrical",
+  2: "Plumbing",
+  3: "Painting",
+  4: "Airconditioning"
+};
+_servicesprovider["pestcontrol"] = {
+  1: "Rodent Removal",
+  2: "Bedbugs Removal",
+  3: "Pesticidal Services",
+  4: "Termite Removal",
+};
+_servicesprovider["interiordecoration"] = {
+  1: "Consultation",
+  2: "Remodeling",
+  3: "Room Review"
+};
+_servicesprovider["landscaping"] = {
+  1: "Consultation",
+  2: "Hardscaping and Construction",
+  3: "Landscape Maintenance",
+  4: "Design Services"
+};
+
+//_account
+_account["transactiontype"] = {
+  1: "Payment In",
+  2: "Payment Out"
+};
+_account["type"] = {
+  1: "Unit",
+  2: "Lease",
+  3: "Work Order"
+};
+_account["subtype"] = {};
+
+_account["from"] = {
+  1: "Property Management",
+  2: "Landlord",
+  3: "Tenant",
+  4: "Service Provider"
+};
+_account["to"] = {
+  1: "Property Management",
+  2: "Landlord",
+  3: "Tenant",
+  4: "Service Provider"
+};
+_account["mode"] = {
+  1: "Cash",
+  2: "Bank Transfer",
+  3: "Cheque",
+  4: "Others"
+};
+_account["status"] = {
+  1:"Paid",
+  2:"Due"
+};
+_account["paymentterm"] = {
+  1: "Semi-Annually",
+  2: "Annually"
+};
+_account["ejaristatus"] = {
+  1:"Active",
+  2:"Inactive"
+};
+
+
+//workorders
+_workorder["type"] = {
+  1: "Maintenance",
+  2: "Pest Control",
+  3: "Interior Decoration",
+  4: "Landscaping"
+};
+_workorder["subtype"] = {
+  1: {
+    1: "Electrical",
+    2: "Plumbing",
+    3: "Painting",
+    4: "Airconditioning"
+  },
+  2: {
+    1: "Rodent Removal",
+    2: "Bedbugs Removal",
+    3: "Pesticidal Services",
+    4: "Termite Removal",
+  },
+  3: {
+    1: "Consultation",
+    2: "Remodeling",
+    3: "Room Review"
+  },
+  4: {
+    1: "Consultation",
+    2: "Hardscaping and Construction",
+    3: "Landscape Maintenance",
+    4: "Design Services"
+  }
+};
+_workorder["status"] = {
+  1: "Scheduled",
+  2: "Not Scheduled",
+  3: "In Progress",
+  4: "Completed",
+};
+_workorder["paidby"] = {
+  1: "Landlord",
+  2: "Tenant",
+  3: "Property Management"
+};
+_workorder["paymentstatus"] = {
+  1: "Not Paid",
+  2: "Paid By Cash",
+  3: "Paid By Cheque",
+  4: "Partly Paid"
+};
+_workorder["priority"] = {
+  1: "Low",
+  2: "Medium",
+  3: "High"
+};
+
+
+function GetHeaderCounts(module){
+
+  if(module == "pmunits") 
+    GetUnitsHeaderCounts();
+
+  else if(module == "pmleases") 
+    GetLeasesHeaderCounts();
+
+  else if(module == "pmworkorders") 
+    GetWorkOrdersHeaderCounts();
+
+  else if(module == "pmaccounts") 
+    GetAccountsHeaderCounts
+
+  else if(module == "pmlandlords") 
+    GetLandlordsHeaderCounts();
+
+  else if(module == "pmtenants") 
+    GetTenantsHeaderCounts();
+
+  else if(module == "pmserviceproviders") 
+    GetServiceProvidersHeaderCounts();
+}
+
+function GetUnitsHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetUnitsHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+      $("#cntAll").text("("+result["AllCount"]+")");
+      $("#cntAvailable").text("("+result["AvailableCount"]+")");
+      $("#cntRented").text("("+result["RentedCount"]+")");
+    }
+  });
+}
+
+function GetLeasesHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetLeasesHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+        $("#cntExpiring").text("("+result["ExpiringCount"]+")");
+    }
+  });
+}
+
+function GetLandlordsHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetLandlordsHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+    }
+  });
+}
+
+function GetTenantsHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetTenantsHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+    }
+  });
+}
+
+function GetServiceProvidersHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetServiceProvidersHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+    }
+  });
+}
+
+function GetAccountsHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetAccountsHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+        $("#cntIn").text("("+result["PaymentInCount"]+")");
+        $("#cntOut").text("("+result["PaymentOutCount"]+")");
+    }
+  });
+}
+
+function GetWorkOrdersHeaderCounts(){
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/GetWorkOrdersHeaderCounts",
+    datatype: "html",
+    success: function(result) {
+        $("#cntAll").text("("+result["AllCount"]+")");
+        $("#cntInProgress").text("("+result["InProgressCount"]+")");
+        $("#cntCompleted").text("("+result["CompletedCount"]+")");
+    }
+  });
+}
+
+function GetLeases(unitId){
+  if($.fn.DataTable.isDataTable('[id=tblLeases]')){
+    $('[id=tblLeases]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oUnitsTable = $('[id=tblLeases]').DataTable({
+        "bProcessing": true,
+        "sDom": 'R<>rt<ilp><"clear">',
+        "aoColumnDefs": [
+            {
+                'render': function(data, type, full, meta)
+                {
+                    //check the main check box
+                    //$('#check_all_checkboxes').attr('checked', false);
+                    return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+                },
+                "aTargets": [0],
+                "bSortable": false
+            },
+            {
+                "aTargets": [1],
+                'render': function(data, type, full, meta){
+                    return (data == 1)?"Rent":"Sale";
+                }
+            }
+        ]
+        ,"iDisplayLength": 25,
+        "bServerSide": true,
+        "sAjaxSource": config.siteUrl + "PM_Common/GetLeases?unitId=" + unitId ,
+        "iDisplayStart": 0,
+        "sPaginationType": "full_numbers",
+        'fnServerData': function(url, data, callback) {
+            //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": config.siteUrl + "PM_Common/GetLeases?unitId=" + unitId ,
+                "data": data,
+                "success": function(json) {
+                    callback(json);
+                    // updateUserStatusPanel();;
+                    if (last_id > 0) {
+                        // $('#tblLeases #'+last_id+' td').addClass('yellowCSS');
+                    }
+                }
+            });
+        }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_leases').on( 'keyup', function () {
+      oUnitsTable.search( this.value ).draw();
+    });
+  }
+}
+
+function GetWorkOrders(unitId) {
+  if($.fn.DataTable.isDataTable('[id=tblWorkOrders]')){
+    $('[id=tblWorkOrders]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oWorkOrdersTable = $('[id=tblWorkOrders]').DataTable({
+      "bProcessing": true,
+      "sDom": 'R<>rt<ilp><"clear">',
+      "aoColumnDefs": [{
+        'render': function(data, type, full, meta) {
+          //check the main check box
+          //$('#check_all_checkboxes').attr('checked', false);
+          return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+        },
+        "aTargets": [0],
+        "bSortable": false
+      }, {
+        //Status
+        "aTargets": [2],
+        'render': function(data, type, full, meta) {
+          // alert(data)
+          return _workorder.status[data];
+        }
+      }, {
+        //Priority
+        "aTargets": [3],
+        'render': function(data, type, full, meta) {
+          return _workorder.priority[data];
+        }
+      }, {
+        //Type
+        "aTargets": [10],
+        'render': function(data, type, full, meta) {
+          return _workorder.type[data];
+        }
+      }, {
+        //Subtype
+        "aTargets": [11],
+        'render': function(data, type, full, meta) {
+          switch (data) {
+            case "1":
+              return "Sub Type 1";
+              break;
+            case "2":
+              return "Sub Type 2";
+              break;
+            case "3":
+              return "Sub Type 3";
+              break;
+            case "4":
+              return "Sub Type 4";
+              break;
+            case "5":
+              return "Sub Type 5";
+              break;
+            case "6":
+              return "Sub Type 6";
+              break;
+            case "7":
+              return "Sub Type 7";
+              break;
+            default:
+              "None";
+          }
+        }
+      }, {
+        //Payment Status
+        "aTargets": [12],
+        'render': function(data, type, full, meta) {
+          switch (data) {
+            case "1":
+              return "Not Paid";
+              break;
+            case "2":
+              return "Paid";
+              break;
+            default:
+              "None";
+          }
+        }
+      }],
+      "iDisplayLength": 25,
+      "bServerSide": true,
+      "sAjaxSource": config.siteUrl + "PM_Common/GetWorkOrders?unitId=" + unitId ,
+      "iDisplayStart": 0,
+      "sPaginationType": "full_numbers",
+      'fnServerData': function(url, data, callback) {
+        //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+        $.ajax({
+          "dataType": 'json',
+          "type": "POST",
+          "url": config.siteUrl + "PM_Common/GetWorkOrders?unitId=" + unitId ,
+          "data": data,
+          "success": function(json) {
+            callback(json);
+            // updateUserStatusPanel();;
+            if (last_id > 0) {
+              // $('#tblWorkOrders #'+last_id+' td').addClass('yellowCSS');
+            }
+          }
+        });
+      }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_workorders').on('keyup', function() {
+      oWorkOrdersTable.search(this.value).draw();
+    });
+  }
+}
+
+
+function GetTenants(){
+  if($.fn.DataTable.isDataTable('[id=tblTenants]')){
+    $('[id=tblTenants]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oTenantsTable = $('[id=tblTenants]').DataTable({
+        "bProcessing": true,
+        "sDom": 'R<>rt<ilp><"clear">',
+        "aoColumnDefs": [
+        {
+            'render': function(data, type, full, meta)
+            {
+                //check the main check box
+                //$('#check_all_checkboxes').attr('checked', false);
+                return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+            },
+            "aTargets": [0],
+            "bSortable": false
+        }                     
+        ],
+        "iDisplayLength": 25,
+        "bServerSide": true,
+        "sAjaxSource": config.siteUrl + "PM_Common/GetTenants", //?prop_status=+$("#ulLeases li.active").val(),
+        "iDisplayStart": 0,
+        "sPaginationType": "full_numbers",
+        'fnServerData': function(url, data, callback) {
+            //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": config.siteUrl + "PM_Common/GetTenants", //?prop_status=+$("#ulLeases li.active").val(),
+                "data": data,
+                "success": function(json) {
+                    callback(json);
+                    // updateUserStatusPanel();;
+                    if (last_id > 0) {
+                        // $('[id=tblTenants] #'+last_id+' td').addClass('yellowCSS');
+                    }
+                }
+            });
+        }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_Tenants').on('keyup', function() {
+        oTenantsTable.search(this.value).draw();
+    });
+
+    $('[id=tblTenants] tbody').on('click', 'tr', function() {
+        $("[id=tblTenants] tbody tr").removeClass('selected');
+        $(this).toggleClass('selected');
+        $(this).find("input").prop("checked", true);
+        var tenantId = $(this).find("input").val();
+    });    
+  }
+}
+
+function GetServiceProviders(){
+  if($.fn.DataTable.isDataTable('[id=tblServiceProviders]')){
+    $('[id=tblServiceProviders]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oUnitsTable = $('[id=tblServiceProviders]').DataTable({
+        "bProcessing": true,
+        "sDom": 'R<>rt<ilp><"clear">',
+        "aoColumnDefs": [
+            {
+                'render': function(data, type, full, meta)
+                {
+                    //check the main check box
+                    //$('#check_all_checkboxes').attr('checked', false);
+                    return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+                },
+                "aTargets": [0],
+                "bSortable": false
+            }
+        ]
+        // ,"aoColumns": [
+        //     {"mDataProp": "id"},
+        //     {"mDataProp": "status"},
+        //     {"mDataProp": "type"},
+        //     {"mDataProp": "ref"},
+        //     {"mDataProp": "unit"},
+        //     {"mDataProp": "category"},
+        //     {"mDataProp": "Emirate"},
+        //     {"mDataProp": "Location"},
+        //     {"mDataProp": "Sub-Location"},
+        //     {"mDataProp": "beds"},
+        //     {"mDataProp": "price"},
+        //     {"mDataProp": "Owner"},
+        //     {"mDataProp": "Next Available"},
+        //     {"mDataProp": "Property Mgr"},
+        // ],
+        // "columns": [
+        //     {"data": "id"},
+        //     {"data": "status"},
+        //     {"data": "type"},
+        //     {"data": "ref"},
+        //     {"data": "unit"},
+        //     {"data": "category"},
+        //     {"data": "Emirate"},
+        //     {"data": "Location"},
+        //     {"data": "Sub-Location"},
+        //     {"data": "beds"},
+        //     {"data": "Owner"},
+        //     {"data": "Next Available"},
+        //     {"data": "PropertyMgr"},
+        // ]
+        ,"iDisplayLength": 25,
+        "bServerSide": true,
+        "sAjaxSource": config.siteUrl + "PM_Common/GetServiceProviders",//?prop_status=+$("#ulLeases li.active").val(),
+        "iDisplayStart": 0,
+        "sPaginationType": "full_numbers",
+        'fnServerData': function(url, data, callback) {
+            //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": config.siteUrl + "PM_Common/GetServiceProviders",//?prop_status=+$("#ulLeases li.active").val(),
+                "data": data,
+                "success": function(json) {
+                    callback(json);
+                    // updateUserStatusPanel();;
+                    if (last_id > 0) {
+                        // $('[id=tblServiceProviders] #'+last_id+' td').addClass('yellowCSS');
+                    }
+                }
+            });
+        }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_serviceproviders').on( 'keyup', function () {
+      oUnitsTable.search( this.value ).draw();
+    } );
+
+    $('[id=tblServiceProviders] tbody').on('click', 'tr', function () {
+        $("[id=tblServiceProviders] tbody tr").removeClass('selected');
+        $(this).toggleClass('selected');
+        $(this).find("input").prop("checked", true);
+
+    });   
+  }
+}
+
+function GetLandlords(){
+  if($.fn.DataTable.isDataTable('[id=tblLandlords]')){
+    $('[id=tblLandlords]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oLandlordsTable = $('[id=tblLandlords]').DataTable({
+        "bProcessing": true,
+        "sDom": 'R<>rt<ilp><"clear">',
+        "aoColumnDefs": [
+        {
+            'render': function(data, type, full, meta)
+            {
+                //check the main check box
+                //$('#check_all_checkboxes').attr('checked', false);
+                return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+            },
+            "aTargets": [0],
+            "bSortable": false
+        }                     
+        ],
+        "iDisplayLength": 25,
+        "bServerSide": true,
+        "sAjaxSource": config.siteUrl + "PM_Common/GetLandlords", //?prop_status=+$("#ulLeases li.active").val(),
+        "iDisplayStart": 0,
+        "sPaginationType": "full_numbers",
+        'fnServerData': function(url, data, callback) {
+            //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": config.siteUrl + "PM_Common/GetLandlords", //?prop_status=+$("#ulLeases li.active").val(),
+                "data": data,
+                "success": function(json) {
+                    callback(json);
+                    // updateUserStatusPanel();;
+                    if (last_id > 0) {
+                        // $('[id=tblLandlords] #'+last_id+' td').addClass('yellowCSS');
+                    }
+                }
+            });
+        }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_Landlords').on('keyup', function() {
+        oLandlordsTable.search(this.value).draw();
+    });
+  }
+}
+
+function GetTransactions() {
+  if($.fn.DataTable.isDataTable('[id=tblTransactions]')){
+    $('[id=tblTransactions]').DataTable().draw();
+  }
+  else{
+    var last_id = '';
+    oTransactionsTable = $('[id=tblTransactions]').DataTable({
+      "bProcessing": true,
+      "sDom": 'R<>rt<ilp><"clear">',
+      "aoColumnDefs": [{
+        'render': function(data, type, full, meta) {
+          //check the main check box
+          //$('#check_all_checkboxes').attr('checked', false);
+          return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+        },
+        "aTargets": [0],
+        "bSortable": false
+      }, {
+        //Transaction Type
+        "aTargets": [2],
+        'render': function(data, type, full, meta) {
+          return _account.transactiontype[data]; // _transactionType[data];
+        }
+      }, {
+        //Payment Type
+        "aTargets": [3],
+        'render': function(data, type, full, meta) {
+          return _account.type[data];
+        }
+      }, {
+        //Payment Sub-Type
+        "aTargets": [4],
+        'render': function(data, type, full, meta) {
+          return ""; //_account.subtype[data];
+        }
+      }, {
+        //Payment From
+        "aTargets": [5],
+        'render': function(data, type, full, meta) {
+          return _account.from[data];
+        }
+      }, {
+        //Payment To
+        "aTargets": [6],
+        'render': function(data, type, full, meta) {
+          return _account.to[data];
+        }
+      }, {
+        //Payment Mode
+        "aTargets": [7],
+        'render': function(data, type, full, meta) {
+          return _account.mode[data];
+        }
+      }, ],
+      "iDisplayLength": 25,
+      "bServerSide": true,
+      "sAjaxSource": config.siteUrl + "PM_Common/GetTransactions?transactiontype=" + $("#ulAccounts li.active").val(), //?prop_status=+$("#ulLeases li.active").val(),
+      "iDisplayStart": 0,
+      "sPaginationType": "full_numbers",
+      'fnServerData': function(url, data, callback) {
+        //data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+        $.ajax({
+          "dataType": 'json',
+          "type": "POST",
+          "url": config.siteUrl + "PM_Common/GetTransactions?transactiontype=" + $("#ulAccounts li.active").val(), //?prop_status=+$("#ulLeases li.active").val(),
+          "data": data,
+          "success": function(json) {
+            callback(json);
+            // updateUserStatusPanel();;
+            if (last_id > 0) {
+              // $('#tblTransactions #'+last_id+' td').addClass('yellowCSS');
+            }
+          }
+        });
+      }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_Transactions').on('keyup', function() {
+      oTransactionsTable.search(this.value).draw();
+    });
+  }
+}
+
+function GetTransaction(transactionId) {
+  $.ajax({
+      type: "POST",
+      url: mainurl + "PM_Common/GetTransaction",
+      data: {
+          'transactionId': transactionId
+      },
+      datatype: "html",
+      success: function(result) {
+          FillTransaction(result);
+
+          $("#editTransaction").show();
+          $("#cancelTransaction").show();
+          $("#tabNotes").find('*').prop("disabled", false);
+      }
+  });
+}
+
+function SaveWorkOrder(){
+  var objWorkOrder = {};
+  var parameters = jQuery('#frm_workorders').serializeArray();
+  // var arr = parameters.split('&');
+
+  $.each(parameters, function() {
+      objWorkOrder[this.name] = this.value;
+  });
+
+  $.ajax({
+      type: "POST",
+      url: mainurl + "PM_Common/SaveWorkOrder/",
+      data: {
+          'objWorkOrder': objWorkOrder
+      },
+      datatype: "object",
+      success: function(res) {
+          ResetFields();
+          $('#tblWorkOrders').DataTable().draw();
+          GetUnit(objWorkOrder.unitId);
+          GetWorkOrder(objWorkOrder.id);
+      }
+  });
+}
+
+function SaveLease(){
+  var objLease = {};  
+  var parameters = jQuery('#frm_lease').serializeArray();
+  //var arr = parameters.split('&');  
+
+    $.each(parameters, function() {
+        objLease[this.name] = this.value;
+    });
+
+    $.ajax({
+        type: "POST",
+        url: mainurl + "PM_Common/SaveLease/",
+        data: {
+            'objLease': objLease},
+        datatype: "object",
+        success: function(res) {
+          ResetFields();
+          $("#tblLeases").DataTable().draw();
+          GetUnit(objLease.unitId);
+          GetLease(objLease.id);
+        }
+    }); 
+}
+
+function GetWorkOrder(workorderID){
+    $.ajax({
+        type: "POST",
+        url: mainurl + "PM_Common/GetWorkOrder",
+        data: {
+            'workorderID': workorderID},
+        datatype: "html",
+        success: function(result) {
+            FillWorkOrder(result);
+
+            $("#editWorkOrder").show();
+            $("#cancelWorkOrder").show();
+            $("#tabNotes").find('*').prop("disabled", false);
+        }
+    });
+}
+
+function FillWorkOrder(result){
+
+    var workorder = {}, unit = {}, tenant = {}, notes = {}, documents = {}, transactions = {}, sp = {};
+    unit = result.unitDetails;
+    workorder = result.workorderDetails;
+    tenant = result.tenantDetails;
+    notes = result.workOrderNotes;
+    transactions = result.transactionDetails;
+    sp = result.serviceproviderDetails;
+
+    var unit_status = "";
+    switch(unit.prop_status){
+        case "1": 
+            unit_status = "Available";
+        break;
+        case "2": 
+            unit_status = "Pending";
+        break;
+        case "3": 
+            unit_status = "Rented";
+        break;
+        case "4": 
+            unit_status = "Upcoming";
+        break;
+        case "5": 
+            unit_status = "Reserved";
+        break;
+        case "6": 
+            unit_status = "Renewed";
+        break;
+        case "7": 
+            unit_status = "Blocked";
+        break;
+        default: "None";
+    }
+
+    /* [dev note] Habibi, why use [id=idname] instead of #idname?
+     * #idname matches the first instance of this id,
+     * when [id=idname] matches ALL instances of this id.
+     * i needed to use the latter because we have two controls, 
+     * one for the main page where you view data, 
+     * and one modal box to update it.
+    ------------------------------------------------------------------*/
+    $("#modaltitle h4").text("Update Work Order for " + workorder.ref);
+    $("#divWorkOrderDetails #unitNo").val(workorder.unit);
+    $("#unitId").val(unit.unitId);
+    $("#unitRefNo").val(unit.unitRefNo);
+    $("#frm_workorders #id").val(workorder.id);
+    $("#frm_workorders #ref").val(workorder.ref);
+    $("#frm_workorders #dateadded").val(workorder.dateadded);
+    $("#frm_workorders #created_by").val(workorder.created_by);
+    $("[id=unitTitle]").val(workorder.unit +" - "+ unit.SubLocation);
+    $("[id=serviceProviderId]").val(workorder.serviceProviderId);
+    $("[id=serviceProviderRefNo]").val(workorder.serviceProviderRefNo);
+    $("[id=serviceprovider]").val(workorder.serviceprovider);
+    $("[id=description]").val(workorder.description);
+    $("[id=type]").val(workorder.type);
+    $("[id=subtype]").val(workorder.subtype);
+    $("[id=assignedto]").val(workorder.assignedto);
+    $("[id=status]").val(workorder.status);
+    $("[id=startdate]").val(workorder.startdate);
+    $("[id=enddate]").val(workorder.enddate);    
+    $("[id=cost]").val(workorder.cost);
+    $("[id=paidby]").val(workorder.paidby);
+    $("[id=paymentstatus]").val(workorder.paymentstatus);
+    $("[id=priority]").val(workorder.priority);
+
+
+    $("#rand_key").val(workorder.rand_key);
+    $("#ref").val(workorder.ref);    
+
+    //unit details
+    $("#divUnitDetails label").text('');
+    $("#divUnitDetails").show();
+    $("#divUnitHeader span").hide();
+
+    var type = (unit.type == 1)?"Rent":"Sale";
+
+    $("#divUnitDetails #uType").text(type);
+    $("#divUnitDetails #uRef").text(unit.unitRefNo);
+    $("#divUnitDetails #uCategory").text(unit.category);
+    $("#divUnitDetails #uLocation").text(unit.Location);
+    $("#divUnitDetails #uSubLocation").text(unit.SubLocation);
+    $("#divUnitDetails #uRegion").text(unit.Emirate);
+    $("#divUnitDetails #uBeds").text(unit.beds);
+    $("#divUnitDetails #uLandlord").text(unit.Owner);
+    $("#divUnitDetails #uAgent").text(unit.PropertyMgr);
+
+    // //TODO: fill notes and documents
+
+    if(notes.length > 0){
+
+        notes = notes.sort(function(a, b){return b-a});
+        
+        $.each(notes, function(i, noteArray){
+            var note = '<div id="'+noteArray.id+'">'+
+            '<label><i>'+noteArray.datecreated+'</i></label>'+
+            '<p align="left"><strong>'+noteArray.note+'</strong></p>'+
+            '<hr></div>';
+
+            $("#divNoteContent").append(note);
+        });    
+    }
+
+    if(transactions.length > 0){
+
+        $("#divAccountDetail").show();
+        $("#divAccountHeader span").hide();
+
+        transactions = transactions.sort(function(a, b){return b-a});
+        var dueSum = 0, paidSum = 0;
+
+        $.each(transactions, function(key, val){
+            var row = "<tr>"+
+            "<td>"+_account.status[val.status]+"</td>"+
+            "<td>"+val.amount+"</td>"+
+             "<td><a href='#'><i class='fa fa-eye'></i></a></td>"+
+            +"</tr>";
+            $("#divAccountDetail table").append(row);
+
+            (val.status == 1)?paidSum += Math.round(val.amount):dueSum += Math.round(val.amount);
+        });
+
+        $("#spPaid").text(paidSum.toFixed(2));
+        $("#spDue").text(dueSum.toFixed(2));
+    }
+
+    $.each(documents, function(i, documentArray){
+        var doc = '<div id="'+documentArray.id+'">'+documentArray.dateUploaded+'</div>'+
+        '<div class="row">'+
+        '<div class="col-md-7">'+
+        '<label><strong>'+documentArray.filename+'</strong></label>'+
+        '</div>'+
+        '<div class="col-md-5">'+
+        '<label><a href="#">View</a> | <a href="#">Delete</a></label>'+
+        '</div>'+
+        '</div>';
+
+        $("#documents").append(doc);
+    });  
+
+    $(".well table").show();
+    $("#serviceProviderId").val(sp.id);
+    $("#serviceProviderRefNo").val(sp.ref);
+    $("[id=serviceprovider]").val(sp.serviceprovidername)
+    $("[id=uType]").text(sp.type);
+    $("[id=uSubTypes]").text(sp.subtypes);
+    $("[id=uContact]").text(sp.firstname + " " + sp.lastname);
+    $("[id=uMobile]").text(sp.mobilenumber);
+    $("[id=uEmail]").text(sp.email);
+}
+
+function GetLease(leaseId){
+    //alert(leaseId);
+
+    $.ajax({
+        type: "POST",
+        url: mainurl + "PM_Common/GetLease",
+        data: {
+            'leaseId': leaseId},
+        datatype: "html",
+        success: function(result) {
+            FillLease(result);
+
+            $("#editLease").show();
+            $("#cancellease").show();
+            $("#tabNotes").find('*').prop("disabled", false)
+        }
+    });
+}
+
+function FillLease(result){
+
+    var lease = {}, unit = {}, tenant = {}, notes = {}, documents = {};
+    unit = result.unitDetails;
+    lease = result.leaseDetails;
+    tenant = result.tenantDetails;
+    notes = result.leaseNotes;
+
+    var unit_status = "";
+    switch(unit.prop_status){
+        case "1": 
+            unit_status = "Available";
+        break;
+        case "2": 
+            unit_status = "Pending";
+        break;
+        case "3": 
+            unit_status = "Rented";
+        break;
+        case "4": 
+            unit_status = "Upcoming";
+        break;
+        case "5": 
+            unit_status = "Reserved";
+        break;
+        case "6": 
+            unit_status = "Renewed";
+        break;
+        case "7": 
+            unit_status = "Blocked";
+        break;
+        default: "None";
+    }
+
+    /* [dev note] Habibi, why use [id=idname] instead of #idname?
+   * #idname matches the first instance of this id,
+   * when [id=idname] matches ALL instances of this id.
+   * i needed to use the latter because we have two controls, 
+   * one for the main page where you view data, 
+   * and one modal box to update it.
+    ------------------------------------------------------------------*/
+  $("#modaltitle h4").text("Update Lease for " + lease.ref);
+  $("#divLeaseDetails #unitNo").val(lease.unit);
+  $("#unitId").val(unit.unitId);
+  $("#unitRefNo").val(unit.unitRefNo);
+  $("#frm_lease #id").val(lease.id);
+  $("#frm_lease #dateadded").val(lease.dateadded);
+  $("#frm_lease #created_by").val(lease.created_by);
+  $("[id=unitTitle]").val(lease.unit +" - "+ unit.SubLocation);
+  $("[id=tenantId]").val('5');
+  $("[id=tenantName]").val(tenant.firstname + " " + tenant.lastname);
+  $("[id=tName]").text(tenant.firstname + " " + tenant.lastname);
+  $("[id=tMobile]").text(tenant.countrycode1 + tenant.mobilenumber1);
+  $("[id=tEmail]").text(tenant.email);
+  $("[id=tNationality]").text(tenant.nationality);
+  $("[id=tDOB]").text(tenant.dob);
+  $("[id=startdate]").val(lease.startdate);
+  $("[id=enddate]").val(lease.enddate);
+  $("[id=leaseamount]").val(lease.leaseamount);
+  $("[id=deposit_percentage]").val(lease.deposit_percentage);
+  $("[id=deposit_amount]").val(lease.deposit_amount);
+  $("[id=fees_percentage]").val(lease.fees_percentage);
+  $("[id=fees_amount]").val(lease.fees_amount);
+  $("[id=commission]").val(lease.commission);
+  $("[id=paymentmode]").val(lease.paymentmode);
+  $("[id=paymentterm]").val(lease.paymentterm);
+  $("[id=cheques]").val(lease.cheques);
+  $("[id=sourceoftenancy]").val(lease.sourceoftenancy);
+  $("[id=depositheldby]").val(lease.depositheldby);
+  $("[id=ejaristatus]").val(lease.ejaristatus);
+  $("[id=ejarinumber]").val(lease.ejarinumber);
+  $("[id=reminder]").val(lease.reminder);
+
+  $("[id=rand_key]").val(lease.rand_key);
+  $("[id=ref]").val(lease.ref);    
+
+    //unit details
+  $("#divUnitDetails label").text('');
+  $("#divUnitDetails").show();
+  $("#divUnitHeader span").hide();
+
+  var type = (unit.type == 1)?"Rent":"Sale";
+
+  $("#uType").text(type);
+  $("#uRef").text(unit.unitRefNo);
+  $("#uCategory").text(unit.category);
+  $("#uLocation").text(unit.Location);
+  $("#uSubLocation").text(unit.SubLocation);
+  $("#uRegion").text(unit.Emirate);
+  $("#uBeds").text(unit.beds);
+  $("#uLandlord").text(unit.Owner);
+  $("#uAgent").text(unit.PropertyMgr);
+
+    // //TODO: fill notes and documents
+    if(notes.length > 0){    
+        notes = notes.sort(function(a, b){return b-a});
+        
+      $.each(notes, function(i, noteArray){
+        var note = '<div id="'+noteArray.id+'">'+
+        '<label><i>'+noteArray.datecreated+'</i></label>'+
+        '<p align="left"><strong>'+noteArray.note+'</strong></p>'+
+        '<hr></div>';
+
+        $("#notes").append(note);
+      });
+    }
+
+  $.each(documents, function(i, documentArray){
+    var doc = '<div id="'+documentArray.id+'">'+documentArray.dateUploaded+'</div>'+
+    '<div class="row">'+
+    '<div class="col-md-7">'+
+    '<label><strong>'+documentArray.filename+'</strong></label>'+
+    '</div>'+
+    '<div class="col-md-5">'+
+    '<label><a href="#">View</a> | <a href="#">Delete</a></label>'+
+    '</div>'+
+    '</div>';
+
+    $("#documents").append(doc);
+  });
+
+
+
+                            // <div class="row">
+                            //   <div class="col-md-7">
+                            //     <label><strong>Tenancy Contract.docx</strong></label>
+                            //   </div>
+                            //   <div class="col-md-5">
+                            //     <label><a href="#">View</a> | <a href="#">Delete</a></label>
+                            //   </div>
+                            // </div> 
+}
+
+function GetUnits() {
+  if($("#tblUnits").hasClass("dataTable")){
+    // $("#tblunits").DataTable().clear();//.draw();
+    // alert("if");
+  }
+  else{
+    // alert("else");
+    var last_id = '';
+    oUnitsTable = $('[id=tblUnits]').DataTable({
+      "bProcessing": true,
+      "sDom": 'R<>rt<ilp><"clear">',
+      "aoColumnDefs": [{
+        'render': function(data, type, full, meta) {
+          //check the main check box
+          //$('#check_all_checkboxes').attr('checked', false);
+          return '<div style="text-align:center;"><input style="align:center;" type="radio" name="listing" value="' + data + '">  <span class="lbl"></span></div>';
+        },
+        "aTargets": [0]
+      }, {
+        "bSortable": false,
+        "aTargets": [0]
+      }, {
+        "aTargets": [1],
+        'render': function(data, type, full, meta) {
+          return (data == 1) ? "Rent" : "Sale";
+        }
+      }],
+      "aoColumns": [{
+        "mDataProp": "id"
+      }, {
+        "mDataProp": "type"
+      }, {
+        "mDataProp": "ref"
+      }, {
+        "mDataProp": "unit"
+      }, {
+        "mDataProp": "category"
+      }, {
+        "mDataProp": "region_id"
+      }, {
+        "mDataProp": "area_location_id"
+      }, {
+        "mDataProp": "sub_area_location_id"
+      }, {
+        "mDataProp": "beds"
+      }, {
+        "mDataProp": "size"
+      }, {
+        "mDataProp": "price"
+      }, {
+        "mDataProp": "agent_id"
+      }, {
+        "mDataProp": "landlord_name"
+      }, {
+        "mDataProp": "dateadded"
+      }, {
+        "mDataProp": "dateupdated"
+      }, {
+        "mDataProp": "user_id"
+      }, {
+        "mDataProp": "key_location"
+      }, ],
+      "columns": [{
+        "data": "id"
+      }, {
+        "data": "type"
+      }, {
+        "data": "ref"
+      }, {
+        "data": "unit"
+      }, {
+        "data": "category"
+      }, {
+        "data": "region_id"
+      }, {
+        "data": "area_location_id"
+      }, {
+        "data": "sub_area_location_id"
+      }, {
+        "data": "beds"
+      }, {
+        "data": "size"
+      }, {
+        "data": "price"
+      }, {
+        "data": "agent_id"
+      }, {
+        "data": "landlord_name"
+      }, {
+        "data": "dateadded"
+      }, {
+        "data": "dateupdated"
+      }, {
+        "data": "user_id"
+      }, {
+        "data": "key_location"
+      }, ],
+      "iDisplayLength": 25,
+      "bServerSide": true,
+      "sAjaxSource": config.siteUrl + "PM_Common/GetUnits?prop_status=" + $("#ulUnits li.active").val() + "&type=" + $('input[name=listtype_]:checked').val(),
+      "iDisplayStart": 0,
+      "sPaginationType": "full_numbers",
+      'fnServerData': function(url, data, callback) {
+        data.type = $("#rgroup_listingtype input[type=radio]:checked").val();
+
+        $.ajax({
+          "dataType": 'json',
+          "type": "POST",
+          "url": config.siteUrl + "PM_Common/GetUnits?prop_status=" + $("#ulUnits li.active").val() + "&type=" + $('input[name=listtype_]:checked').val(),
+          "data": data,
+          "success": function(json) {
+            callback(json);
+            // updateUserStatusPanel();;
+            if (last_id > 0) {
+              // $('[id=tblUnits] #'+last_id+' td').addClass('yellowCSS');
+            }
+          }
+        });
+      }
+    });
+
+    $('.datatable-setbotclass').next().addClass('fixedpagination-bottom');
+
+    $('#txtSmartSearch_units').on('keyup', function() {
+      oUnitsTable.search(this.value).draw();
+    });
+  }
+}
+
+function GetPayments(){
+  var unitId = $("#unitform #id").val();
+
+  $.ajax({
+      type: "POST",
+      url: mainurl + "PM_Common/GetPayments",
+      data: {
+          'unitId': unitId }, // , 'quarter': quarter},
+      datatype: "html",
+      success: function(result) {
+          FillPayments(result);
+      }
+  });  
+}
+
+function AddPayment(){
+
+  // if($("#hdnPayeeId option:selected").val(0)){
+  //   //do popover
+  // }
+  // else{
+
+    //$("[data-id='Month']").attr("Title")
+
+  var $pcontrols = $("#paymentControls");
+
+  var payment = {};
+  payment["payee"] = $("#hdnPayeeId").text();
+  payment["payeeId"] = $("#hdnPayeeId").val();
+  payment["amount"] = $pcontrols.find("#cost").val();
+  payment["status"] = $pcontrols.find("#status option:selected").val();
+  payment["month"] = $pcontrols.find("#selMonths option:selected").val();
+  payment["year"] = $("#selYear option:selected").val();
+
+  var m = GetMonths(payment["quarter"]);
+
+  var selectedMonths = $('#Month.selectpicker').val();
+
+  // if($("tr.r" + payment["payeeId"]).length > 0){
+
+  // }
+
+  var row =
+  '<tr headerId="0" detailId="0" class="r'+payment["payeeId"]+'">'+
+    '<td class="p'+payment["payeeId"]+' payee">'+payment["payee"]+'</td>';
+
+  for (var i = 1; i <= 12; i++) {
+    row +=
+    '<td class="m'+i+' p'+payment["payeeId"]+' s1 payment" quarter="'+payment["quarter"]+'" year="'+payment["year"]+'" status="1" payee="'+payment["payeeId"]+'" month="'+i+'">--</td>' +
+    '<td class="m'+i+' p'+payment["payeeId"]+' s2 payment" quarter="'+payment["quarter"]+'" year="'+payment["year"]+'" status="2" payee="'+payment["payeeId"]+'" month="'+i+'">--</td>';
+  }
+  row += '</tr>';
+
+  $("#tblPayments tbody").append(row);
+
+  for (var j = 0; j < selectedMonths.length; j++) {
+    $("tr.r" + payment["payeeId"]).find("td.m" + selectedMonths[j] + ".s" + payment["status"] + ".payment").text(addCommas(parseFloat(payment["amount"]).toFixed(2)));
+  };
+
+  ResetAccountForm();
+  // }
+}
+
+function FillPayments(result){
+
+  var $modal = $("#accountform");
+
+  var payments = {}, headerdetails = {};
+  payments = result.payments;
+
+  headerdetails = result.headerdetails;
+
+  $modal.find("#id").val(headerdetails.headerId);
+  $modal.find("#ref").val(headerdetails.ref);
+
+  var $tablebody = $("#tblPayments tbody");
+
+  $tablebody.html("");
+
+  //construct tablebody first
+  $.each(payments, function(i, array){
+
+    var row = "<tr headerId='"+array.headerId+"' detailId='"+array.detailId+"' class='r"+array.payeeId+"'>" +
+              "<td class='p"+array.payeeId+" payee' >"+array.name+"</td>" +
+              "</tr>";
+
+    $tablebody.append(row);
+  }); 
+
+  $.each(payments, function(i, array){
+
+    for (var j = 1; j <= 12; j++) {
+
+      $(".r"+array.payeeId).append("<td month='"+j+"' payee='"+array.payeeId+"' status='1' year='"+array.year+"' class='m"+j+" p"+array.payeeId+" s1 payment'>--</td>");
+      $(".r"+array.payeeId).append("<td month='"+j+"' payee='"+array.payeeId+"' status='2' year='"+array.year+"' class='m"+j+" p"+array.payeeId+" s2 payment'>--</td>");
+    };
+
+    //fill in the values from DB. how? by calling the classnames.
+    $("tr.r" + array.payeeId).find("td.m" + array.month + ".s" + array.status + ".payment").text(addCommas(parseFloat(array.payment).toFixed(2)));    
+  });
+  
+  //scroll to current month
+  var m = new Date();
+  //m.getMonth() * 120
+  //alert("test");
+  //var scrollposition = m.getMonth() * 120;
+  $(".table-wrapper").scrollLeft(360);
+
+
+}
+
+function addCommas(nStr) {
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+}
+
+function getQuarter(d) {
+  var m = new Date();
+  d = d || m.getMonth(); // If no date supplied, use today
+  
+  var q = [1,2,3,4];
+  var i = Math.floor(d / 3);
+  return (q[i] == undefined)?q[3]:q[i];
+}
+
+function ResetAccountForm(){
+  $modal = $("#accountform")
+  $modal.find("#hdnPayeeId").val(0);
+  $modal.find("#hdnPayeeId").text("");
+  $modal.find("#cost").val('');
+  $modal.find("#status").val(0);
+  $modal.find("#selectedPayee").text("Select");
+}
+
+function ResetServiceProviderForm(){
+  var $spForm = $("#serviceproviderform");
+  $spForm.find("#ref").val('');
+  $spForm.find("#serviceprovidername").val('');
+  $spForm.find("#type").val('');
+  $spForm.find("#subtypes").val('')
+  $spForm.find("#address").val('');
+  $spForm.find("#firstname").val('');
+  $spForm.find("#lastname").val('');
+  $spForm.find("#countrycode1").val(''); 
+  $spForm.find("#mobilenumber1").val('');
+  $spForm.find("#email").val('');
+  $spForm.find("#mobilenumbertitle").val('');  
+  $spForm.find("#accountnumber").val('');  
+}
+
+function SaveServiceProvider(){
+    var objServiceProvider = {};
+    var parameters = jQuery('#paymentControls').serializeArray();
+    // var arr = parameters.split('&');
+
+    $.each(parameters, function() {
+        alert("this.name-->" + this.name)
+        objServiceProvider[this.name] = this.value;
+    });
+
+    $.ajax({
+        type: "POST",
+        url: mainurl + "PM_Common/SaveServiceProvider/",
+        data: {
+            'objServiceProvider': objServiceProvider
+        },
+        datatype: "object",
+        success: function(res) {
+            // ResetFields();
+            // $('#tblServiceProviders').DataTable().draw();
+        }
+    });
+}
+
+function GetServiceProviderNames(){
+  var spDropdown = $("#selPayee").next("ul");
+
+  $.ajax({
+      type: "POST",
+      url: mainurl + "PM_Common/GetServiceProviderNames",
+      // data: {},
+      datatype: "html",
+      success: function(result) {
+        spDropdown.html('<li><a href="#" value="0">Select</a></li>');
+
+        $.each(result.spnames, function(key, payeeArray){
+          spDropdown.append('<li><a href="#" value="'+payeeArray.id+'">'+payeeArray.name+'</a></li>');
+          // spDropdown.append($("<option></option>").val(payeeArray.id).html());
+        });
+
+        var liFooter = '<li role="separator" class="divider"></li>'+
+        '<li><a href="#" value="new">Create New...</a></li>';
+
+        spDropdown.append(liFooter);
+      }
+  });
+}
+
+function SavePayments_dep(){
+  var tBody = $("#tblPayments tbody");
+  var objPayment = [];
+  var objPaymentDetails = {};
+
+  $.each(tBody.find("tr"), function(i, row){
+
+    $.each($(row).find("td"), function(j, cell){
+      var $c = $(cell);
+
+      if($c.hasClass("payee")){
+        objPaymentDetails["payeeId"] = $c.attr("value");
+      }
+
+      if($c.hasClass("payment")){
+        objPaymentDetails["status"] = $c.attr("status");
+        objPaymentDetails["month"] = $c.attr("month");
+        objPaymentDetails["payment"] = $c.html();
+      }
+
+      // objPaymentDetails["quarter"] = 
+      // objPaymentDetails["year"] = 
+
+      objPayment.push(objPaymentDetails);
+    });
+  });
+
+  $.ajax({
+      type: "POST",
+      url: mainurl + "PM_Common/SavePayments/",
+      data: {
+          'objPayment': objPayment
+      },
+      datatype: "object",
+      success: function(res) {
+          // ResetFields();
+          // $('#tblServiceProviders').DataTable().draw();
+      }
+  });  
+}
+
+function GetMonths(quarter){
+  var m = [];
+  m.push((quarter == 1)? 1: 1 + ( 3 * (quarter - 1)));
+  m.push((quarter == 1)? 2: 2 + ( 3 * (quarter - 1)));
+  m.push((quarter == 1)? 3: 3 + ( 3 * (quarter - 1)));
+  return m;
+}
+
+function SaveServiceProvider(){
+    var objServiceProvider = {};
+    var parameters = jQuery('#frm_serviceprovider').serializeArray();
+    // var arr = parameters.split('&');
+
+    $.each(parameters, function() {
+        alert("this.name-->" + this.name)
+        objServiceProvider[this.name] = this.value;
+    });
+
+    $.ajax({
+        type: "POST",
+        url: mainurl + "PM_Common/SaveServiceProvider/",
+        data: {
+            'objServiceProvider': objServiceProvider
+        },
+        datatype: "object",
+        success: function(res) {
+
+        }
+    });
+}
+
+
+function SavePayments(){
+  var objPayment = [];  
+  var objPaymentDetails = {};
+  
+
+  var $table = $("#tblPayments");
+
+  $.each($table.find("td.payment"), function(i, cell){
+
+   var objPaymentDetails = {};  
+
+   if($(cell).html() !== "--"){
+
+    objPaymentDetails["detailId"] = $(cell).closest("tr").attr("detailid");    
+    objPaymentDetails["payeeId"] = $(cell).attr("payee");
+    objPaymentDetails["status"] = $(cell).attr("status");
+    objPaymentDetails["month"] = $(cell).attr("month");
+    objPaymentDetails["year"] = $(cell).attr("year");
+    objPaymentDetails["payment"] = parseFloat( $(cell).html().replace(/,/g,'') );
+
+    objPayment.push(objPaymentDetails);    
+   }
+  });
+
+
+  $.ajax({
+    type: "POST",
+    url: mainurl + "PM_Common/SavePayments/",
+    data: {
+        'headerId': $("#accountform").find("#id").val(),
+        'ref': $("#accountform").find("#ref").val(),
+        'objPayment': objPayment
+    },
+    datatype: "object",
+    success: function(res) {
+        // ResetFields();
+        // $('#tblServiceProviders').DataTable().draw();
+    }
+  }); 
+}
+
+$(document).ready(function(){
+  var _module = $("body").prop("class");
+  //Populate dropdowns
+  //alert("key-->" + key + " | value-->" + );
+
+  /*
+    var gasPrice = new Intl.NumberFormat("en-US",
+      { style: "currency", currency: "USD",
+      minimumFractionDigits: 3 });
+  */
+
+  $(".pActions").hide();
+
+  $("#frm").slideUp(600);
+
+  $.each(_lease, function(id, element) {
+      $("#leaseform [id="+id+"]").html("").append("<option value='0'>Select</option>");
+
+      $.each(element, function(key, value){
+        
+        $("#leaseform [id="+id+"]").append("<option value='"+key+"'>"+value+"</option>");
+      });
+  });  
+
+  $.each(_servicesprovider, function(id, element) {
+      $("serviceproviderform [id="+id+"]").html("").append("<option value='0'>Select</option>");
+
+      $.each(element, function(key, value){
+        
+        $("#serviceproviderform [id="+id+"]").append("<option value='"+key+"'>"+value+"</option>");
+      });      
+  });
+
+  $.each(_account, function(id, element) {
+      $("#accountform [id="+id+"]").html("").append("<option value='0'>Select</option>");
+
+      $.each(element, function(key, value){
+        $("#accountform [id="+id+"]").append("<option value='"+key+"'>"+value+"</option>");
+      });        
+  }); 
+
+  $.each(_workorder, function(id, element) {
+      $("#workorderform [id="+id+"]").html("").append("<option value='0'>Select</option>");
+
+      $.each(element, function(key, value){
+        if(id != "subtype")      
+          $("#workorderform [id="+id+"]").append("<option value='"+key+"'>"+value+"</option>");
+      });           
+  });  
+
+  $("#workorderform #type").change(function(){
+    $("#workorderform #subtype").html("").append("<option value='0'>Select</option>");
+
+    $.each(_workorder.subtype[this.value], function(key, val){
+      $("#workorderform #subtype").append("<option value='"+key+"'>"+val+"</option>");
+    });
+  });
+
+  GetHeaderCounts(_module);
+
+  $(".dataTable tbody").on('click', 'tr', function() {
+      $(this).find("tr").removeClass('selected');
+      $(this).toggleClass('selected');
+      $(this).find("input").prop("checked", true);
+  });  
+
+  /*modal section
+  -----------------*/
+  var modalList = new Array();
+  var parentModal = "", childModal = "";
+
+  $(".modal").on("show.bs.modal", function (e) {
+    childModal = this.id;
+    // alert(childModal);
+
+    if(modalList.length > 0){
+      if(modalList.indexOf(this.id) < 0){ //if id is existing not array
+        modalList.push(this.id);
+      }    
+    }
+    else modalList.push(this.id);
+
+    parentModal = modalList[modalList.length-2];
+    $("#" + parentModal).modal("hide");
+    // alert("parentModal-->" +parentModal);
+
+    /*//for console
+    for (var i = 0; i < modalList.length; i++) {
+      console.log("modalList["+i+"]-->" + modalList[i]);
+    };
+    ---------------------------------------------------- */   
+  });
+
+  $(".modal").on("hidden.bs.modal", function (e) {
+
+    if(modalList.length > 1){
+      if(this.id == modalList[modalList.length - 1]){
+        $("#" + parentModal).modal("show");
+              modalList.pop();
+      }
+    }
+    else modalList.pop();
+
+    /*// for console
+    for (var i = 0; i < modalList.length; i++) {
+      console.log("modalList["+i+"]-->" + modalList[i]);
+    };
+    ----------------------------------------------------*/
+  });
+  
+  $("#unitSelector").on("show.bs.modal", function (e) {
+    GetUnits();
+  });
+
+  $("#tenantSelector").on("show.bs.modal", function (e) {
+    GetTenants();
+  });
+
+  $("#landlordSelector").on("show.bs.modal", function (e) {
+    GetLandlords();
+  });
+
+  $("#serviceproviderSelector").on("show.bs.modal", function (e) {
+    GetServiceProviders();
+  });
+
+  $("#leases").on("show.bs.modal", function (e) {
+    var unitId = $("#unitform #id").val();
+    GetLeases(unitId);
+  });
+
+  $("#workorders").on("show.bs.modal", function (e) {
+    var unitId = $("#unitform #id").val();
+    GetWorkOrders(unitId);
+  });  
+
+  $("#accountform").on("show.bs.modal", function (e) {
+    var unitId = $("#unitform #id").val();
+    // var quarter = getQuarter(); //get current quarter
+    // $("#selQuarters option[value="+quarter+"]").attr("selected", true);
+    // ChangeQuarter(quarter);
+    ResetAccountForm();
+
+    GetServiceProviderNames();
+    GetPayments();
+  });    
+
+  $("#serviceproviderform").on("show.bs.modal", function (e) {
+    ResetServiceProviderForm();
+  });
+
+  // $("#workorderform").on("show.bs.modal", function (e) {
+  //   alert(e.target.id);
+  //   GetWorkOrder();
+  // });
+
+  /*-----------------
+  modal section end*/  
+
+  // $(".modal").on("change", "#type", function(){
+  //   var $x = $(this).parent(".modal").prop("id");
+  //   alert("modal.id-->" + $x);
+  // });
+
+  /* Manage Payments section
+  ---------------------------*/
+
+  $("#tblPayments").on("mouseenter", "td.payment", function(){
+    if(! $(this).hasClass("cellEditing"))
+      $( this ).append('<i class="fa fa-pencil" title="Edit"></i>');
+  })
+  .on("mouseleave", "td.payment", function(){
+    if(! $(this).hasClass("cellEditing"))
+      $( this ).find("i").remove();    
+  })
+  .on("dblclick", "td.payment", function() {
+    var OriginalContent = $(this).text();
+    $(this).addClass("cellEditing");
+    $(this).html('<input type="text" class="form-control tdEditor" value="'+OriginalContent+'">'); // <i class="fa fa-floppy-o" title="Save"></i> <i class="fa fa-times-circle" title="Cancel"></i>
+    $(this).children().first().focus();
+
+    $(this).children().first().keypress(function (e) {
+        if (e.which == 13) {
+            var newContent = $(this).val();
+            $(this).parent().text(addCommas(parseFloat(newContent).toFixed(2)));
+            $(this).parent().removeClass("cellEditing");
+        }
+    });
+
+    //k--> here is when the user clicks out of the input box. if ever they want to save the new data on "click out", here's were you change it.
+    $(this).children().first().blur(function(){
+        $(this).parent().text(OriginalContent);
+        $(this).parent().removeClass("cellEditing");
+    });
+
+    $(this).find('input').dblclick(function(e){
+        e.stopPropagation(); 
+    });
+  });  
+
+  $("#btnAddPayment").click(function(){
+    AddPayment();
+  });
+
+  // $("#hdnPayeeId").change(function(){
+  //   if(this.value == "new"){
+  //     $("#serviceproviderform").modal("show");
+  //   }
+  // });
+
+  $("#paymentControls").on('click', '#spDropdown li a', function () {
+    $("#hdnPayeeId").val($(this).attr("value"));
+    $("#hdnPayeeId").text($(this).text());
+
+    $("#selectedPayee").text($(this).text());
+
+      if($(this).attr("value") == "new"){
+        $("#serviceproviderform").modal("show");
+      }
+  });
+
+  $("#paymentControls").on('click', '#spDropdown li a', function () {
+    $("#hdnPayeeId").val($(this).attr("value"));
+    $("#hdnPayeeId").text($(this).text());
+
+    $("#selectedPayee").text($(this).text());
+
+      if($(this).attr("value") == "new"){
+        $("#serviceproviderform").modal("show");
+      }
+  });
+
+  $("#btnSaveServiceProvider").click(function(){
+      SaveServiceProvider();
+  });
+
+  $("#btnSavePayments").click(function(){
+    SavePayments();
+  })
+
+});
+
+

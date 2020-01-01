@@ -1,0 +1,113 @@
+/*************** Listing CSS ***************/
+h4.add_new_rental{
+	background:#1ccacc;
+	margin:15px 0;
+	color:#FFF;
+	padding:8px 0;
+	padding-left:15px;
+	font-size:16px;
+}
+.listing_action_nav li a{
+	font-size:14px;
+	color:#0dc297;
+}
+.listing_action_nav li a:hover{
+	color:#db4453;
+}
+.feature_modal_header{
+	border-bottom:0;
+}
+.datatables thead{
+	background:#4b89dc;
+	color:#FFF;
+}
+.datatables .highlighted{
+	background:#286dca;
+}
+
+.emirate_search{
+	padding:15px;
+}
+.save_search{
+	padding:15px;
+}
+.save_search .btn{
+	color:#FFF;
+}
+.document_area{
+	background:#FFF;
+	border:1px solid #CCC;
+	height:200px;
+	overflow:scroll;
+	overflow-x:hidden;
+}
+.color_panel_box{
+	background:#03F;
+	height:30px;
+	display:block;
+}
+.profile_cont{
+	margin-bottom:20px;
+	background:#FFF;
+	padding:15px;
+}
+.logo_upload_area{
+	background:#FFF;
+	padding:15px;
+}
+.logo_upload_area img{
+	border:1px dashed #666666;
+	margin:0 0 15px 0;
+	padding:0 15px;
+}
+
+.manage_group_table{
+	background:#FFF;
+	padding:15px;
+}
+.group_location_area{
+	overflow-x:hidden;
+	height:200px;
+	overflow-y:scroll;
+}
+
+.user_listing_sharing_row{
+	overflow:hidden;
+	padding-bottom:20px;
+}
+.user_listing_sharing_row .share_with{
+	float:left;
+	width:110px;
+}
+.user_listing_sharing_arrows{
+	float:left;
+	width:32px;
+	padding:40px 10px 0 10px;
+}
+
+.user_marketing_img{
+	margin-top:15px;
+}
+.user_marketing_img img{
+	padding:5px;
+	border:1px dashed #666666;
+}
+.user_marketing_img{
+  cursor: pointer;
+}
+.user_marketing_img:hover{
+  transform: scale(1.5);
+  transition: .3s linear;
+}
+
+div.dataTables_paginate{
+	width:auto !important;
+}
+
+
+
+
+
+
+
+

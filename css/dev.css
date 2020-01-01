@@ -1,0 +1,818 @@
+/*Its my css don't add yours */
+/*Global Styling*/
+.required_error , .form_fields_error {
+  border-color:#a94442;
+}
+.tabcontent-nopadding {
+    padding: 0;
+}
+.gist-bordered {
+  border:1px solid #ccc;
+}
+.tab-nopadding {
+  padding: 0;
+}
+.fa.fa-4 {
+    font-size: 7em;
+}
+#wrapper select {
+  line-height: normal;
+}
+.input-group-btn select {
+  border-color: #ccc;
+margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.btn.input-sm.codeselect {
+    font-size: 12px;
+    padding: 1px 0 0 !important;
+    text-align: left;
+    width: 60px;
+}
+/*date picker issue is listind aditional info when it on first tell reason why*/
+/*.modal-body .form-group {
+  overflow: hidden;
+}*/
+.emirate_search {
+  width: 510px;
+}
+.modal-body .ui-buttonset .ui-button {
+      margin-right: 0;
+}
+.modal-body .pagination>li {
+    display: inline-block;
+  }
+.modal-body .ui-state-default {
+  border: none;
+}
+.modal-body .fixedpagination-bottom {
+  bottom: 130px;
+}
+.modal-body div.dataTables_wrapper {
+  margin-bottom: 60px;
+}
+hr {
+    clear: both;
+}
+.tab-white {
+  background-color: #fff;
+}
+.no-radius{
+  -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+}
+.r_txt a , .s_txt a {
+  color: #fff;
+}
+/*upload fy*/
+.uploadifive-button {
+  background-color: #286090;
+  color: #fff;
+}
+
+/*float charts legends*/
+.pie-legends {
+    margin: 10px 0 0 0;
+    max-height: 75px;
+    overflow-y: auto;
+    min-height: 75px;
+}
+td.legendColorBox {
+    padding: 0 5px 0 0;
+}
+
+.selectedagentarea button {
+    float: left;
+}
+#add_lead_landlord_name {
+    margin: 11px 0 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  white-space: nowrap;
+}
+.modal-open {
+    overflow: auto;
+}
+.form-control.col-md-4 {
+    margin-right: 2px;
+    width: 25%;
+}
+.form-control.col-md-8 {
+    width: 74%;
+}
+.gist-contactbw {
+  position: relative;
+  z-index: 1;
+}
+.gist-contactbw2 {
+  z-index: 9;
+}
+.fa.fa-certificate.text-dange {
+    color: red;
+}
+input[type=radio] {
+  width: 16px;
+  height: 15px;
+  margin: 0 0 0 -3px;
+}
+
+/*hack for bootstrap modal*/
+body.modal-open {
+    padding-right: 0 !important;
+}
+.table-striped > tbody > tr {
+    background: #fff;
+}
+.modal-title {
+  padding: 0;
+}
+/*ui.css changes*/
+.margin-bottom-15 {
+  margin-bottom: 5px;
+}
+ul.list-inline.listing_action_nav {
+    margin-top: 5px;
+}
+.clear {
+  clear: both;
+}
+.btn-success , .btn-success:focus, .btn-success:active, .btn-success:hover {
+  outline: none;
+}
+#wrapper select {
+  line-height: normal;
+}
+.tab-content {
+  /*display: table;*/
+  width: 100%;
+}
+/*for tackle absloute elements*/
+.container {
+  position: relative;
+}
+.alert {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 60%;
+}
+.input-group-addon {
+  padding: 6px 8px;
+}
+
+/*HOME PAGE*/
+.crm-hideme {
+	display: none !important;
+}
+.dashboard .tab-content {
+  background-color: transparent;
+}
+.gist-marginleft {
+  margin-left: 50px;
+}
+.huge span.r_txt a , .huge span.s_txt a {
+  color: #fff;
+}
+.huge span.r_txt a:hover , .huge span.s_txt a:hover {
+  color: #ccc;
+}
+.panel-calendar .panel-body {
+    height: 725px;
+    max-height: 725px;
+}
+/*Top Blue Content Fixes*/
+.blue.crm-absloute {
+    width: 95%;
+    background-color: #4b89dc !important;
+}
+/*ALL BLOCKS*/
+.open_boxes_cont .crm-absloute {
+	background: #fff none repeat scroll 0 0;
+	position: absolute;
+	z-index: 99
+}
+#sortable {
+	position: relative;
+	;
+}
+.clickable {
+	cursor: pointer;
+}
+.arrow {
+	cursor: pointer;
+}
+.panel-option {
+	float: right;
+}
+.panel-option span {
+	margin: 0 8px 0 0;
+}
+.ui-sortable .panel-body {
+    height: 300px;
+    max-height:300px;
+    overflow-y:auto;  
+}
+.panel-body > div#content {
+    
+    overflow: hidden;
+}
+.demo-container {
+	height: 250px;
+	display: block;
+  overflow-y:auto;
+}
+.demo-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+.legendLabel {
+    line-height: 1.9em;
+}
+.legend table {
+	border-spacing: 5px;
+}
+
+/*Profile Agent */
+.crm-agent .img-circle {
+    width: 75px;
+}
+.crm-agent {
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 15px;
+}
+.crm-agent:nth-child(6n) {
+    margin-right: 0;
+}
+.crm-portallist li:hover {
+	background-color: #1CCACC;
+	color: #fff;
+}
+.crm-portallist li:hover a {
+	color: #fff;
+}
+.profile-page .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+.profile-page small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+.profile-page .progress {
+	background-color: #ccc;
+}
+.profile-area {
+    height: auto;
+    position: relative;
+    max-height: 110px;
+}
+.profile-page {
+    position: absolute;
+    width: 100%;
+}
+/*.heightme110 {
+	height: 110px;
+}*/
+.flotTip 
+    {
+      padding: 3px 5px;
+      background-color: #000;
+      z-index: 100;
+      color: #fff;
+      box-shadow: 0 0 10px #555;
+      opacity: .7;
+      filter: alpha(opacity=70);
+      border: 2px solid #fff;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+
+/*Listing
+Data Table styleing*/
+
+#top_score_wrap .tf-wrapper {
+    padding: 10px;
+}
+#top_score_wrap .tf-item{
+    padding:8px 5px;
+    border-bottom: 1px solid #ddd;
+}
+#top_score_wrap .title {
+    font-weight: bold;
+}
+#top_score_wrap .tf-item:last-child {
+    border-bottom: none;
+}
+#top_score_wrap .value{
+    float: right;
+}
+.tf-suggestions {
+    font-size: 10px;
+}
+#tf-suggestion {
+    height: 200px;
+    overflow-y: auto;
+}
+.tf-wrapper .red,
+.tf-suggestions-list .red,
+.pb-label.red,
+.q-score-wrap .red,
+.lbl-red{
+    color:#ee2828;
+}
+.tf-wrapper .orange,
+.tf-suggestions-list .orange,
+.pb-label.orange,
+.q-score-wrap .orange,
+.lbl-orange{
+    color:#e6772e;
+}
+.tf-wrapper .yellow,
+.tf-suggestions-list .yellow,
+.pb-label.yellow,
+.q-score-wrap .yellow,
+.lbl-yellow{
+    color:#e9c003;
+}
+.tf-wrapper .limegreen,
+.tf-suggestions-list .limegreen,
+.pb-label.limegreen,
+.q-score-wrap .limegreen,
+.lbl-limegreen{
+    color:#8cc43d;
+}
+.tf-wrapper .darkgreen,
+.tf-suggestions-list .darkgreen,
+.pb-label.darkgreen,
+.q-score-wrap .darkgreen,
+.lbl-darkgreen{
+    color:#2da761;
+}
+.tf-suggestions-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    height: 100%;
+    display: none;
+    background: #fff;
+}
+.tf-suggestions-list.active {
+    display: block;
+}
+.tf-suggestion-item {
+    display: none;
+}
+.tf-suggestion-item.active {
+    display: block;
+}
+.tf-suggestion-head {
+    font-weight: bold;
+    padding: 6px 5px 0 5px;
+    margin-bottom: 0;
+}
+
+.gist-list-qdrop .dropdown-toggle {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    margin: 28px 10px 0 0;
+}
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-top: -8px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 5px;
+  text-align: center;
+}
+.gist-proage {
+  display: inline-block;
+  text-align: right;
+  width: 60px;
+}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  line-height: 60px;
+  z-index: 2;
+}
+.percent:after {
+  content: '%';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
+
+div.gist-selmsg {
+    position: absolute;
+    z-index: 99;
+    top: 95px;
+    left: 20px;
+}
+.close-selsomething {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+}
+.datatable-Scrolltab {
+  padding-bottom: 50px;
+}
+.datatables thead{
+  background: #1ccacc;
+  color:#FFF;
+}
+.datatables .highlighted{
+  background: #3ee3e5;
+}
+div.dataTables_length , div.dataTables_info , 
+#dataTables-location-text_length , #dataTables-location-text_info , #dataTables-market-data_length ,
+div.dataTables_length {
+    margin-left: 15px;
+}
+div#dataTables-current-listing_filter , div.dataTables_paginate , 
+#dataTables-location-text_filter , #dataTables-location-text_paginate , 
+#dataTables-market-data_filter , #dataTables-current-listing_filter {
+    margin-right: 15px;
+}
+div.dataTables_paginate , #dataTables-location-text_paginate {
+  margin-top: 5px;
+}
+div.dataTables_wrapper {
+  overflow-x: auto;
+    position: relative;
+    padding-bottom: 25px;
+}
+.fixedpagination-bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 65px;
+    display: block;
+}
+div.dataTables_info {
+    position: absolute;
+    left: 0;
+    width: 20%;
+}
+
+div.dataTables_length {
+    position: absolute;
+    right: 48px;
+    margin-top: 5px;
+}
+
+div.dataTables_paginate {
+    width: 30%;
+    position: absolute;
+    left: 30%;
+    text-align: center;
+}
+
+.gist-othextrafields {
+    margin: 10px 0 0;
+}
+.gist-othextrafields .form-control {
+    margin: 0 0 5px;
+}
+
+
+.mceLayout {
+    margin-bottom: 10px !important;
+}
+
+/*Reporting Section Style*/
+
+.push-menu-left .panel-heading {
+    padding: 0;
+}
+.push-menu-left .panel-title {
+    padding: 0;
+}
+.push-menu-left .panel-group {
+    margin-top: 15px;
+}
+.push-menu-left .panel-default {
+    border: medium none;
+}
+.push-menu-left .panel-title a {
+    background: #00a99e none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 10px;
+}
+.push-menu-left .panel-group .panel + .panel {
+    margin-top: 0;
+}
+.push-menu-left .panel-body {
+    background: #00a99e none repeat scroll 0 0;
+    padding: 0;
+}
+.push-menu-left .orangesection .panel-body {
+    background: #f6b638 none repeat scroll 0 0;
+}
+.push-menu-left .bluesection .panel-body {
+    background: #784984 none repeat scroll 0 0;
+}
+.push-menu-left .panel-body > #cssmenu {
+    margin-top: 0px;
+}
+.push-menu-left .panel-title a .fa {
+    float: right;
+    font-size: 24px;
+    margin: -3px 8px 0 0;
+}
+.push-menu-left .orangesection .panel-title a {
+    background: #f6b638 none repeat scroll 0 0;
+}
+.push-menu-left .bluesection .panel-title a {
+    background: #784984 none repeat scroll 0 0;
+}
+.push-menu-left .panel-title a:hover , 
+.push-menu-left .orangesection .panel-title a:hover ,
+.push-menu-left .bluesection .panel-title a:hover {
+    color: #fbf8f8;
+}
+.orangesection #cssmenu .sidebar_dropdown.active > a {
+  background-color:#d6920b;
+  border-color: #d6920b;
+}
+.bluesection #cssmenu .sidebar_dropdown.active > a {
+  background-color:#784984;
+  border-color: #784984;
+}
+.orangesection #cssmenu .sidebar_dropdown.active > a span , .orangesection #cssmenu .sidebar_dropdown.active > a .fa {
+  color: #fff;
+}
+.orangesection #cssmenu > ul > li.active > a span , .orangesection #cssmenu > ul > li.active > a .fa {
+  color: #f6b638;
+}
+.orangesection #cssmenu > ul > li > a:hover {
+  background-color:#d6920b;
+}
+.orangesection #cssmenu ul ul a:hover {
+  background-color: #f5b12c;
+}
+.bluesection #cssmenu .sidebar_dropdown.active > a span , .bluesection #cssmenu .sidebar_dropdown.active > a .fa {
+  color: #fff;
+}
+.bluesection #cssmenu > ul > li.active > a span  {
+  color: #784984;
+}
+.bluesection #cssmenu > ul > li.active > a:hover span  {
+  color: #fff;
+}
+.bluesection #cssmenu > ul > li.active > a .fa {
+  color:#784984;
+}
+.bluesection #cssmenu > ul > li.active > a:hover .fa {
+  color:#fff;
+}
+.bluesection #cssmenu > ul > li > a:hover {
+  background-color:#855b90;
+}
+.bluesection #cssmenu ul ul a:hover {
+  background-color: #855b90;
+}
+/*reporting dashboard*/
+.gist-secondhead {
+    margin: 20px 0 0 0;
+}
+
+.panel-gistab .nav-tabs > li > a {
+  border: none;
+  border-bottom: 1px solid #f5f5f5; 
+  border-radius: none;
+  margin-right: 10px
+}
+.panel-gistab .active > a , .nav-tabs > li > a:hover {
+    background: none !important;
+    border: none !important;
+    border-bottom: 3px solid #1CCACC !important;    
+}
+.panel-gistab .active > a:hover , .panel-gistab .active > a:focus , .panel-gistab .active > a:active {
+ color:#1CCACC !important;
+ cursor: pointer;    
+}
+.panel-heading.panel-gistab {
+    padding-bottom: 0;
+}
+.panel-gistab .nav-tabs {
+    border: medium none;
+}
+.panel-repheight {
+    height: 200px;
+}
+.text-primary.ccr-text {
+    display: block;
+    font-size: 16px;
+    margin: 5px 0 0;
+}
+.custom-report {
+    text-align: center;
+}
+.text-primary.ccr-text {
+}
+.custom-report .fa.fa-file-text, .custom-report .fa.fa-file-text-o {
+    color: lightgray;
+    display: block;
+    position: relative;
+}
+.custom-report .fa.fa-plus-circle {
+    background: #fff none repeat scroll 0 0;
+    bottom: -5px;
+    color: lightblue;
+    font-size: 28px;
+    padding: 2px 5px;
+    position: absolute;
+    right: 62px;
+}
+
+/*report view styling start from here*/
+h3.gist-reportinghead {
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+}
+select.gist-repcountry {
+    margin: 0 0 0 10px;
+}
+.gist-repsectext {
+    display: block;
+    margin: 10px 0 15px;
+}
+.panel-graybody {
+  background-color: #f1f1f1;
+}
+.filter-group-main {
+  display: inline-block;;
+}
+.table-click a {
+    display: block;
+    overflow: hidden;
+}
+
+.table-click .fa-chevron-right {
+    float: right;
+    padding: 3px 0 0;
+}
+.table-click span {
+    float: left;
+}
+
+.filter-title {
+    background: #fff;
+    border: 1px solid #ccc;
+    font-weight: 600;
+    margin: 0 5px 0 0;
+    padding: 4px 10px 7px;
+}
+.filter-title > span {
+    font-weight: 300;
+    margin: 0 5px 0 0;
+}
+.customize-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 5px 0 0;
+}
+.filter-group-main .filter-option.pull-left {
+    margin: 0 10px 0 0;
+}
+.filter-group-main .btn-success {
+    margin: 0 0 0 5px;
+    padding: 4px 20px;
+}
+.repviewfilter-sep {
+    display: table;
+    margin: 10px 0;
+    width: 100%;
+}
+.reports select.form-control {
+  min-width: 200px;
+}
+.rep-filterdelete .glyphicon {
+    color: red;
+    font-size: 18px;
+    margin: 0 0 0 5px;
+}
+/*Leads Style*/
+.content-wnotop {
+  padding-top: 0;
+}
+.content-wnotop h4 {
+  margin-top: 0;
+}
+.form-group.form-propreq {
+    margin-bottom: 20px !important;
+}
+
+/*Contact Styling*/
+.panel-heading.gist-contab {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    border: medium none !important;
+    padding: 0;
+}
+.gist-contab .nav-tabs > li > a {
+  margin-right: 5px;
+}
+
+.gist-formsmartpanel .tab-content {
+    padding: 0;
+}
+.gist-formsmartpanel .panel-body {
+    padding: 10px;
+    min-height: 200px;
+    max-height: 200px;
+    
+    overflow: hidden;
+    overflow-y: auto;
+}
+.gist-clstheading {
+    height: 47px;
+    padding: 0;
+}
+.gist-copdetail {
+    margin: 35px 0 10px;
+}
+.gist-othdetail {
+    margin: 35px 0 9px;
+}
+.gist-addsocial {
+    font-size: 12px;
+    padding: 3px 0 0;
+}
+
+/*Portal Styling*/
+.xml-txtarea {
+    background: #f1f1f1 none repeat scroll 0 0;
+    height: 50px !important;
+    overflow: auto;
+    padding: 5px;
+}
+
+/* Deals Styling */
+#dg_documents , #dg_details {
+    padding: 5px;
+}
+
+/* Previw listing */
+.gist-previwlist span {
+    font-size: 17px;
+    vertical-align: middle;
+    margin: 0 0 0px 5px;
+}
+.gist-previewloc {
+  margin: 0 0 0 10px;
+}
+.gist-quicksummry {
+  margin: 10px 0;
+  border-bottom: 3px solid #4b89dc;
+  clear: both;
+  padding: 10px 0;
+}
+.gist-qslist li {
+    padding: 5px 5px 5px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+ /*Accounts Style */
+ .gist-accountsdb {
+  margin-top:0; 
+ }
+ .gist-whitebg {
+    background-color: #fff;
+ }
+
+ /* Propert Managment */
+ .pmp-samehieght {
+   min-height: 350px;
+   max-height: 350px;
+   overflow-y: auto;
+ }
+.gist-formfields .form-group {
+    overflow: hidden;
+}
+.gist-image-uplaod {
+    border: 1px solid #ccc;
+    height: 100px;
+    overflow: hidden;
+    padding: 30px 0 0;
+    text-align: center;
+}
+.gist-image-uplaod .fa.fa-image {
+    color: #ccc;
+    font-size: 26px;
+}

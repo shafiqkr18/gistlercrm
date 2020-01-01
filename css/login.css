@@ -1,0 +1,34 @@
+#login_wrapper{
+	background:url(../images/login_bg.jpg) no-repeat;
+	background-size:cover;
+	height:100%;
+}
+.login_cont{
+	padding:20px;
+	background:rgba(255, 255, 255, 0.7);
+	margin-top:100px;
+	border:1px solid #999;
+}
+.login_logo{
+	margin-bottom:25px;
+	
+}
+.login_cont .form-control {
+	height:45px;
+}
+.login_cont .form-group {
+    margin-bottom: 20px;
+}
+.login_cont label{
+	font-size:16px;
+	margin-bottom:10px;
+	text-transform:uppercase;
+}
+.login_cont .forgot_text{
+	font-size:16px;}
+
+
+
+
+
+

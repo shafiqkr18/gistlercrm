@@ -1,0 +1,80 @@
+<div id="login_wrapper">
+        <div class="container">
+        <div class="row fadeInUp">
+        <div class="col-md-6 col-md-offset-3">
+        
+         <?php
+		 $attributes = array('class' => 'frm', 'id' => 'myform');
+	    echo form_open('verifylogin', $attributes);
+        ?>	
+        <div class="login_cont text-center">
+        <img class="login_logo" src="<?php echo base_url(); ?>images/page-logo.png" alt="">
+         <?php echo validation_errors(); ?>
+        <div class="form-group">
+            <label>username</label>
+            
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lg fa-user"></i></span>
+              <input type="text" class="form-control" id="username" name="username">
+              
+            </div>
+           
+        </div>
+        
+        <div class="form-group">
+            <label>Password</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lg fa-lock"></i></span>
+              <input type="password" class="form-control" id="passowrd" name="password" >
+          
+            </div>
+                
+        </div>
+        <div class="form-group">
+        <a href="javascript:;" onclick="document.getElementById('myform').submit();" class=" btn btn-success btn-block btn-lg"><i class="fa fa-lg fa-check"></i> LOGIN</a>
+        </div>
+        
+        <p class="forgot_text">Forgot your password ? <a href="javascript:;" class="text-primary">Click here to reset</a></p>
+        
+        </div>
+        
+        </div>
+        </form>
+        
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        
+                 
+       
+
+
+    <!-- jQuery -->
+    <script src="<?php echo base_url(); ?>js/jquery-1.10.2.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+    
+ 
+    
+   
+
+  
+    
+     <!-- Top phone popover -->
+    <script>
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
+    </script>
+    
+
+</body>
+
+</html>

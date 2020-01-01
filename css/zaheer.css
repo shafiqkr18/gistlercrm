@@ -1,0 +1,26 @@
+/*Its my css don't add yours */
+
+/*HOME PAGE*/
+.crm-hideme {
+	display: none !important;
+}
+/*ALL BLOCKS*/
+.crm-absloute {
+	background: #fff none repeat scroll 0 0;
+}
+#sortable {
+	position: relative;
+	;
+}
+.clickable {
+	cursor: pointer;
+}
+.arrow {
+	cursor: pointer;
+}
+.panel-option {
+	float: right;
+}
+.panel-option span {
+	margin: 0 8px 0 0;
+}

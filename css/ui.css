@@ -1,0 +1,247 @@
+/* General UI Styles */
+textarea{
+	resize:none;
+	height:156px !important;	
+}
+label{
+	font-size:12px;
+	font-weight:normal;
+	color:#333;
+}
+.margin-bottom-15{
+	margin-bottom:15px;
+}
+.padding-bottom-15{
+	padding-bottom:15px;
+}
+.no_border_radius{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.well{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	padding:10px;
+}
+.thumbnail{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	margin-bottom:10px;
+}
+
+.form-control{
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.form-group {
+    margin-bottom: 10px !important;
+}
+.form_group_checkbox {
+    margin-bottom:0;
+}
+.input-group-addon{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.alert{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.panel {
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.panel-heading{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.btn{
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+.btn-lg{
+	font-size:16px;
+}
+.btn-primary {
+    background-color:#4b89dc;
+	border-color:#4b89dc;
+}
+.btn-danger {
+    background-color:#db4453;
+	border-color:#db4453;
+}
+.btn-success {
+    background-color:#0dc297;
+	border-color:#0dc297;
+}
+.btn-warning {
+    background-color:#f6b638;
+	border-color:#f6b638;
+}
+.text-primary {
+    color: #4b89dc;
+}
+.text-danger {
+    color: #db4453;
+}
+.text-success {
+    color: #0dc297;
+}
+.text-warning {
+    color: #f6b638;
+}
+
+/* Select List */
+#wrapper select {
+	border:1px solid #ccc !important;  
+	-webkit-appearance: none; 
+	-moz-appearance: none;
+	appearance:none;
+	background: #fff url(../images/select_arrow.png) no-repeat 95% center;
+	text-indent: 0.01px;
+	text-overflow: "";
+	color: #333;
+	padding:5px;
+}
+#wrapper select:focus {
+	box-shadow:none;
+}
+.modal-body select {
+	border:1px solid #ccc !important;  
+	-webkit-appearance: none; 
+	-moz-appearance: none;
+	appearance:none;
+	background: #fff url(../images/select_arrow.png) no-repeat 95% center;
+	text-indent: 0.01px;
+	text-overflow: "";
+	color: #333;
+	padding:5px;
+}
+.modal-body select:focus {
+	box-shadow:none;
+}
+
+
+/* Checkboxes and Radio buttons */
+
+.checkbox label, .radio label{
+	padding-left:10px;
+}
+input[type=checkbox], input[type=radio] {
+	opacity: 0;
+	position: absolute;
+	z-index: 12;
+	width: 18px;
+	height: 18px;
+}
+input[type=checkbox]:checked, input[type=radio]:checked, input[type=checkbox]:focus, input[type=radio]:focus {
+	outline: none !important;
+}
+input[type=checkbox]+.lbl, input[type=radio]+.lbl {
+	position: relative;
+	z-index: 11;
+	display: inline-block;
+	margin: 0;
+	line-height: 20px;
+	min-height: 14px;
+	min-width: 14px;
+	font-weight: normal;
+}
+input[type=checkbox]+.lbl.padding::before, input[type=radio]+.lbl.padding::before {
+	margin-right:10px;
+}
+input[type=checkbox]+.lbl::before, input[type=radio]+.lbl::before {
+	font-family: fontAwesome;
+	font-weight: normal;
+	font-size: 11px;
+	color: #2091cf;
+	content: "\a0";
+	background-color: #FAFAFA;
+	border: 1px solid #CCC;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	border-radius: 0;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	height: 13px;
+	line-height: 13px;
+	min-width: 13px;
+	margin-right: 1px;
+	margin-top: -5px;
+	box-sizing:content-box !important;
+	-moz-box-sizing:content-box !important;
+	-webkit-box-sizing:content-box !important;
+}
+input[type=checkbox]:checked+.lbl::before, input[type=radio]:checked+.lbl::before {
+	display: inline-block;
+	content: '\f00c';
+	background-color: #F5F8FC;
+	border-color: #adb8c0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+}
+input[type=checkbox]:hover+.lbl::before, input[type=radio]:hover+.lbl::before, input[type=checkbox]+.lbl:hover::before, input[type=radio]+.lbl:hover::before {
+	border-color: #1c7aad;
+}
+input[type=checkbox]:active+.lbl::before, input[type=radio]:active+.lbl::before, input[type=checkbox]:checked:active+.lbl::before, input[type=radio]:checked:active+.lbl::before {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=checkbox]:disabled+.lbl::before, input[type=radio]:disabled+.lbl::before, input[type=checkbox][disabled]+.lbl::before, input[type=radio][disabled]+.lbl::before, input[type=checkbox].disabled+.lbl::before, input[type=radio].disabled+.lbl::before {
+	background-color: #DDD !important;
+	border-color: #CCC !important;
+	box-shadow: none !important;
+	color: #BBB;
+}
+input[type=radio]+.lbl::before {
+	border-radius: 32px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 36px;
+}
+input[type=radio]:checked+.lbl::before {
+	content: "\2022";
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+	margin-bottom:15px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+/* Pagination */
+.pagination.no-border > li > a, .pagination.no-border > li > span{
+    border-radius:0;
+}
+.pagination > li > a, .pagination > li > span, .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius:0;
+}
+.pagination > li.active > a, .pagination > li.active > span, .pagination > li.active > a:hover, .pagination > li.active > span:hover, .pagination > li.active > a:focus, .pagination > li.active > span:focus {
+    background-color: #4b89dc;
+}
+
+

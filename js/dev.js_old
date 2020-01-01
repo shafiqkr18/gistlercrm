@@ -1,0 +1,292 @@
+// Zaheer JS don't add yours
+//Dashboard top tabs
+$(document).ready(function() {
+$("#crm-expandlisting").click(function(){
+    console.log('hi');
+	$("#crm-mysamblocks").addClass('crm-hideme');
+	$("#crm-mylisting").show("slow");
+})
+$("#crm-closelisting").click(function(){
+
+	$("#crm-mysamblocks").removeClass('crm-hideme');
+	$("#crm-mylisting").hide();
+})
+
+$("#crm-expandleads").click(function(){
+	$("#crm-mysamblocks").addClass('crm-hideme');
+	$("#crm-myleadsoverview").show("slow");
+})
+$(".crm-closelisting").click(function(){
+	
+	$("#crm-mysamblocks").removeClass('crm-hideme');
+	$("#crm-myleadsoverview").hide();
+})
+
+$("#crm-expanddeals").click(function(){
+	$("#crm-mysamblocks").addClass('crm-hideme');
+	$("#crm-mydealsoverview").show("slow");
+})
+$(".crm-closelisting").click(function(){
+	
+	$("#crm-mysamblocks").removeClass('crm-hideme');
+	$("#crm-mydealsoverview").hide();
+})
+
+$("#crm-expandcontacts").click(function(){
+	$("#crm-mysamblocks").addClass('crm-hideme');
+	$("#crm-mycontactsoverview").show("slow");
+})
+$(".crm-closelisting").click(function(){
+	
+	$("#crm-mysamblocks").removeClass('crm-hideme');
+	$("#crm-mycontactsoverview").hide();
+});
+});
+
+//Full Screen Code
+function toggleFullScreen() {
+  	if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+  		(!document.mozFullScreen && !document.webkitIsFullScreen)) {
+  			if (document.documentElement.requestFullScreen) {  
+    			document.documentElement.requestFullScreen();  
+  			} else if (document.documentElement.mozRequestFullScreen) {  
+    			document.documentElement.mozRequestFullScreen();  
+  			} else if (document.documentElement.webkitRequestFullScreen) {  
+    			document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+  			}  
+  	} else {  
+  		if (document.cancelFullScreen) {  
+    		document.cancelFullScreen();  
+  		} else if (document.mozCancelFullScreen) {  
+    		document.mozCancelFullScreen();  
+  		} else if (document.webkitCancelFullScreen) {  
+    		document.webkitCancelFullScreen();  
+  		}  
+  	}  
+  }
+
+$(document).ready(function() {
+var maparea = $('#mymap_area');
+if(maparea.length>0) {
+
+    //Pie Chart
+ var data = [],
+            series = Math.floor(Math.random() * 6) + 3;
+
+        for (var i = 0; i < series; i++) {
+            data[i] = {
+                label: "Series" + (i + 1),
+                data: Math.floor(Math.random() * 100) + 1
+            }
+        }
+
+var placeholder = $("#placeholder");
+
+placeholder.unbind();
+
+// $("#title").text("Default pie chart");
+// $("#description").text("The default pie chart with no options set.");
+
+$.plot(placeholder, data, {
+    series: {
+        pie: {
+            show: true
+        }
+    },
+    grid: {
+        hoverable: true,
+        clickable: true
+    },
+    tooltip: {
+        show: true,
+        content: "%p.0%, %s, n=%n", // show percentages, rounding to 2 decimal places
+        shifts: {
+          x: 20,
+          y: 0
+        },
+        defaultTheme: false
+      }
+});
+
+var companydeals = $("#companydeals");
+$.plot(companydeals, data, {
+    series: {
+        pie: {
+            show: true
+        }
+    },
+    grid: {
+        hoverable: true,
+        clickable: true
+    }
+});
+
+var companyleads = $("#companyleads");
+$.plot(companyleads, data, {
+    series: {
+        pie: {
+            show: true
+        }
+    },
+    grid: {
+        hoverable: true,
+        clickable: true
+    }
+});
+//Bar Chart for Float
+ var bar_customised_1 = [[1388534400000, 120], [1391212800000, 70],  [1393632000000, 100], [1396310400000, 60], [1398902400000, 35]];
+ var bar_customised_2 = [[1388534400000, 90], [1391212800000, 60], [1393632000000, 30], [1396310400000, 73], [1398902400000, 30]];
+
+ 
+    var data = [
+        { label: "Series 1", data: bar_customised_1 },
+        { label: "Series 2", data: bar_customised_2 }        
+    ];
+ 
+    $.plot($("#barchartview"), data, {
+        series: {
+            bars: {
+                show: true,
+                barWidth: 12*24*60*60*350,
+                lineWidth: 0,
+                order: 1,
+                fillColor: {
+                    colors: [{
+                        opacity: 1
+                    }, {
+                        opacity: 1
+                    }]
+                }
+            }
+        },
+        xaxis: {
+            mode: "time",
+            min: 1387497600000,
+            max: 1400112000000,
+            tickLength: 0,
+            tickSize: [1, "month"],
+            axisLabel: 'Month',
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 13,
+            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+            axisLabelPadding: 15
+        },
+        yaxis: {
+            axisLabel: 'Value',
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 13,
+            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+            axisLabelPadding: 5
+        },
+        grid: {
+            hoverable: true,
+            borderWidth: 0
+        },
+        legend: {
+            backgroundColor: "#fff",
+            labelBoxBorderColor: "none"
+        },
+        colors: ["#AA4643", "#89A54E", "#4572A7"]
+    });
+ 
+    function show_tooltip(x, y, contents, z) {
+        $('<div id="bar_tooltip">' + contents + '</div>').css({
+            top: y - 45,
+            left: x - 28,
+            'border-color': z,
+        }).appendTo("body").fadeIn();
+    }
+ 
+    function get_month_name(month_timestamp) {
+        var month_date = new Date(month_timestamp);
+        var month_numeric = month_date.getMonth();
+        var month_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var month_string = month_array[month_numeric];
+ 
+        return month_string;
+    }
+ 
+    var previous_point = null;
+    var previous_label = null;
+ 
+    $("#barchartview").on("plothover", function (event, pos, item) {
+        if (item) {
+            if ((previous_point != item.dataIndex) || (previous_label != item.series.label)) {
+                previous_point = item.dataIndex;
+                previous_label = item.series.label;
+ 
+                $("#bar_tooltip").remove();
+ 
+                var x = get_month_name(item.series.data[item.dataIndex][0]),
+                    y = item.datapoint[1],
+                    z = item.series.color;
+ 
+                show_tooltip(item.pageX, item.pageY,
+                    "<div style='text-align: center;'><b>" + item.series.label + "</b><br />" + x + ": " + y + "</div>",
+                    z);
+            }
+        } else {
+            $("#bar_tooltip").remove();
+            previous_point = null;
+            previous_label = null;
+        }
+    });
+
+}// if condition function home dashboard
+ 
+})
+
+
+// DashBoard Js
+$(document).ready(function() {
+$(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+$("#sortable").sortable({
+        handle: ".moveme",
+        revert: true,
+        opacity: 0.5
+    });
+});
+//ADD NEW LISTING BTN
+$(document).ready(function() {
+    
+    $('#newlist-uae').click(function(){
+        
+        var checkparent = $('.required').parent();
+        checkparent.addClass('has-error');
+        if(checkparent.hasClass('input-group')){ 
+            var secondparent = $('.input-group.has-error').parent();
+            secondparent.addClass('has-error');
+            $('.input-group').removeClass('has-error');
+
+        }
+    });
+
+    //Select Something
+    // $('#openSelsome').on('shown.bs.collapse', function () {
+    //     $('#openSelsome').attr('id','closeSelsome');
+    // })
+    // $('#closeSelsome').on('hidden.bs.collapse', function () {
+    //     $('#closeSelsome').attr('id','openSelsome');
+    // })
+
+});
+ //Title Count 
+    function countChar(val) {
+        var len = val.value.length;
+    if (len >= 500) {
+        val.value = val.value.substring(0, 500);
+    } else {
+        $('#charNum').text(len);
+    }
+}

@@ -1,0 +1,109 @@
+
+<!-- 
+  commented out for later
+        <div id="rgroup_listingtype" class="col-md-15">
+          <div class="row">
+            <div class="col-md-2">
+              <label><h5 class="text-primary">Listing Type</h5> </label>
+            </div>                                  
+            <div class="col-md-2"> 
+              <label>
+                <input type="radio" name="listtype_" value="0" class="UnitsListingType" checked="">
+                <span class="lbl padding">All</span>
+              </label>
+            </div>
+            <div class="col-md-2"> 
+              <label>
+                <input type="radio" name="listtype_" value="1" class="UnitsListingType">
+                <span class="lbl padding">Rentals</span>
+              </label>
+            </div>                                     
+            <div class="col-md-2"> 
+              <label>
+                <input type="radio" name="listtype_" value="2" class="UnitsListingType">
+                <span class="lbl padding">Sales</span>
+              </label>
+            </div>
+            <div class="col-md-2"> 
+              <input type="text" style="width:300px" placeholder="Search here" class="form-control input-sm search_init" id="txtSmartSearch_units">
+            </div>
+
+          </div>
+        </div> 
+
+        actions dropdown
+            <div class="col-md-2" style="text-align: right">
+              <ul id="ulActionsDropdown" class="list-inline pull-right">
+                <li class="dropdown"> 
+                  <a data-toggle="dropdown" class="dropdown-toggle btn btn-lg btn-success click" id="aUnitActions" href="" aria-expanded="false"><strong>Actions</strong> <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a data-target="#leaseform" data-toggle="modal" class="popup_a" rel="leaseform" href="#" id="aLease">
+                        <div class="dropdown-option-div">Add Lease</div>
+                      </a>
+                    </li>         
+
+                    <li>
+                      <a data-target="#workorderform" data-toggle="modal" class="popup_a" rel="workorderform" href="#" id="aWorkOrder">
+                        <div class="dropdown-option-div">Add Work Order</div>
+                      </a>
+                    </li>
+                    <li>
+                      <a data-target="#accountform" data-toggle="modal" class="popup_a" rel="" href="#" id="aAccounts">
+                        <div class="dropdown-option-div">Manage Transactions</div>
+                      </a>
+                    </li>                       
+                  </ul>
+                </li>
+              </ul>
+            </div>      
+
+          initial buttons
+          <div class="col-lg-12" role="group">
+            <div class="col-lg-10">
+              <button type="button" id="newUnit" data-toggle="modal" data-target="#unitform" class="btn btn-lg btn-primary"><i class="fa fa-plus-circle"></i> Add Unit</button>
+              <button style="display:none;" type="button" id="editUnit" data-toggle="modal" data-target="#unitform" class="btn btn-lg btn-warning hiddenbuttons"><i class="fa fa-plus-circle"></i> Edit Unit</button>
+              <button style="display:none;" type="button" id="addLease" data-toggle="modal" data-target="#leaseform" class="btn btn-lg btn-warning hiddenbuttons"><i class="fa fa-plus-circle"></i> Add New Lease</button>
+              <button style="display:none;" type="button" id="addWorkOrder" data-toggle="modal" data-target="#workorderform" class="btn btn-lg btn-warning hiddenbuttons"><i class="fa fa-plus-circle"></i> Add Work Order</button>
+              <button style="display:none;" type="button" id="managetransactions" data-toggle="modal" data-target="#accountform" class="btn btn-lg btn-warning hiddenbuttons"><i class="fa fa-plus-circle"></i> Manage Payments</button>
+            </div>
+            <div class="col-lg-2">
+              <button style="display:none;" type="button" id="cancelUnit" class="btn btn-lg btn-default hiddenbuttons"><i class="fa fa-plus-circle"></i> Cancel</button>
+            </div>
+
+          </div>
+
+<ul class="list-inline pull-right" id="ulActionsDropdown">
+  <li class="dropdown"> 
+    <div class="btn-group">
+      <button class="btn btn-success" type="button">Action</button>
+      <a data-toggle="dropdown" class="dropdown-toggle btn  btn-success click" id="aUnitActions" href="" aria-expanded="false"><i class="fa fa-chevron-down"></i></a>
+    </div>
+
+    <ul class="dropdown-menu">
+      <li>
+        <a id="aLease" href="#" rel="leaseform" class="popup_a" data-toggle="modal" data-target="#leaseform">
+          <div class="dropdown-option-div">Add Lease</div>
+        </a>
+      </li>         
+
+      <li>
+        <a id="aWorkOrder" href="#" rel="workorderform" class="popup_a" data-toggle="modal" data-target="#workorderform">
+          <div class="dropdown-option-div">Add Work Order</div>
+        </a>
+      </li>
+      <li>
+        <a id="aAccounts" href="#" rel="" class="popup_a" data-toggle="modal" data-target="#accountform">
+          <div class="dropdown-option-div">Manage Transactions</div>
+        </a>
+      </li>                       
+    </ul>
+  </li>
+</ul>  
+
+
+
+
+
+        -->
+

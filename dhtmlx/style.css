@@ -1,0 +1,956 @@
+a:link{
+    text-decoration: none;
+}
+.dhx_cal_editor{
+    display: none;
+}
+.dhx_footer.dhx_event_resize {
+    height: 5px!important; 
+    border: 0;
+    margin-top: -6px;
+    background: url(imgs_dhx_terrace/resizing.png) no-repeat center center;
+}
+.dhx_footer{
+    height: 5px!important;
+    background-color: #ffffff !important;
+    opacity: 0.2;
+}
+.dhx_cal_select_menu{
+    display: none!important;
+}
+.dhx_cal_light_wide{
+    width:738px!important;
+}
+.dhx_calendar_click {
+    background-color: #C2D5FC !important;
+}
+.dhx_cal_navline input{
+    width:80px;
+    position:absolute;
+    top:1px;
+    font-family:Tahoma;
+    font-weight:8pt;
+}
+.user_table{
+    width:180px;
+}
+#default{
+    float: left;
+    padding-bottom: 8px;
+
+}
+#cadd_viewing{
+
+}
+.form_fields_readonly_cal{
+    padding:3px 3px 3px 2px;
+    border: 1px solid #999;
+    background:  #E6E6E6;
+    width:80px !important;
+    margin:2px;
+}
+
+#load_lead_popup{
+    font-weight: bold;
+    display:none;
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    min-height:90px; 
+    height: auto;
+    width:500px;
+    z-index:1900;
+    margin-left: 15px;  
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+
+    border-radius: 10px 10px 10px 10px;
+    padding:15px;  
+    font-size:13px;
+
+    left: 29%;
+    top: 25%;
+    right: 32%;
+}
+#load_listing_popup{
+    font-weight: bold;
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    min-height:90px; 
+    height: auto; 
+    width:500px;
+    z-index:1900;
+    margin-left: 15px;  
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+    border-radius: 10px 10px 10px 10px;
+    padding:15px;  
+    font-size:13px;
+    left: 29%;
+    top: 25%;
+    right: 32%;
+}
+#load_deal_popup{
+    font-weight: bold;
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    min-height:90px; 
+    height: auto;
+    width:500px;
+    z-index:1900;
+    margin-left: 15px;  
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+    border-radius: 10px 10px 10px 10px;
+    padding:15px;  
+    font-size:13px;
+    left: 29%;
+    top: 25%;
+    right: 32%;
+}
+#lead_tr{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+
+}
+#lead_td{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+    padding-top: 5px; padding-bottom: 5px; border-top: 1px dashed #999999; border-top: 1px dashed #999999;
+}
+.lead_td_class{
+    padding-top: 5px; padding-bottom: 5px; border-top: 1px dashed #999999; border-top: 1px dashed #999999;
+}
+#listing_tr{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+}
+.listing_td{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+
+}
+#deal_tr{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+}
+#deal_td{
+    font-size: 12px;
+    text-decoration: #1c5675;
+    font-weight: normal;
+}
+.user_table tr td{vertical-align: middle;cursor: pointer; }
+.userdesign{padding: 5px;
+            margin: 2px !important;
+            border-radius: 1px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-left-width: 6px !important;
+            font-size: 11px;
+            font-weight: bold; 
+            cursor: pointer; }
+
+.userdesign a{  text-decoration:none;
+                color: rgb(51, 51, 51);
+                font-weight: bold;
+                font-family: arial;font-size: 12px;}
+
+.calendar_user{
+
+    max-height: 343px !important;
+    overflow: auto;
+    padding: 2px;
+}
+#app-left{
+    width:200px; float: left;margin-right: 6px;
+}
+#calendar{
+    width: 200px;
+    margin-top: 5px;
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid #CECECE;
+    box-shadow: 2px 2px 5px #888;color: #222222;
+
+}
+.calendar_description{
+    display: block;
+    font-size: 11px;
+    padding: 7px 1px;
+    color:#767676
+
+}
+.ABCD123{ 
+    border: 1px solid #999;
+    background-color: #999;
+    color: #999;
+}
+.ABCD456{ 
+    border: 1px solid #4EAD49;
+    background-color:#4EAD49;
+    color: #4EAD49;
+}
+.ABCD789{ 
+    border: 1px solid #2184E8;
+    background-color:#2184E8;
+    color: #2184E8;
+}
+.dhx_cal_event{
+    /*left: 0px !important;*/
+
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding-right: 0px;
+    opacity: 0.8;
+    
+
+    /*width: 100px !important;*/
+    /*left: 1px !important;*/
+    /*left:auto !important;*/
+
+}
+
+.dhx_title{
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    font-size: 11px !important;
+    text-align: left !important;
+    padding-left: 4px;
+    width: auto !important;
+}
+.dhx_body{
+    width: auto !important;
+    border-bottom-left-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+    font-size: 11px !important;
+
+}
+
+#icalpopup{
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:auto;  
+    width:auto;    
+    background:#FFFFFF;  
+    /*    left: 300px;
+        top: 150px;*/
+    z-index:10000; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+
+    /* additional features, can be omitted */
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+
+    border-radius: 10px 10px 10px 10px;
+    padding:15px;  
+    font-size:13px;
+
+    left: 36%;
+    top: 25%;
+    right: 36%;
+
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:auto;  
+    width:490px;  
+    /*    height:300px;  
+        width:685px;  */
+    /*    left: 300px;
+        top: 150px;*/
+
+
+}
+#icalpopupBoxClose{
+    float: right;
+    margin: -1px 1px 0 0;
+}
+#clistingsBoxClose{
+    float: right;
+    margin: -1px 4px 0 0;
+}
+#del_lead_edit{
+    vertical-align: top;
+}
+#ui-datepicker-div{
+}
+#edit_event_popup{
+    font-weight: bold;
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:auto;  
+    width:400px;
+    /*    height:300px;  
+        width:685px;  */
+    /*    left: 300px;
+        top: 150px;*/
+    z-index:1900; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+
+    /* additional features, can be omitted */
+
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+
+    border-radius: 10px 10px 10px 10px;
+    padding:10px;  
+    font-size:12px;
+
+    left: 32%;
+    top: 5%;
+    right: 32%;
+
+
+    /*    font-weight: bold;
+        display:none;  Hide the DIV 
+        position:fixed;  
+        _position:absolute;  hack for internet explorer 6   
+        height:auto;  
+        width:400px;  
+            height:300px;  
+            width:685px;  
+            left: 300px;
+            top: 150px;
+        z-index:10000;  Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself 
+        margin-left: 15px;  
+    
+         additional features, can be omitted 
+    
+        border: 1px solid #a6c9e2;
+        background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+        color: #222222;
+    
+        border-radius: 10px 10px 10px 10px;
+        padding:15px;  
+        font-size:13px;
+    
+        left: 32%;
+        top: 5%;
+        right: 32%;*/
+
+}
+#create_event_popup{
+    font-weight: bold;
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:auto;  
+    width:400px;
+    /*    height:300px;  
+        width:685px;  */
+    /*    left: 300px;
+        top: 150px;*/
+    z-index:1900; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+
+    /* additional features, can be omitted */
+
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+
+    border-radius: 10px 10px 10px 10px;
+    padding:10px;  
+    font-size:12px;
+
+    left: 32%;
+    top: 5%;
+    right: 32%;
+
+
+}
+#cadd_guest_popup{
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:400px;  
+    width:720px;   
+    left: 30%;
+    top: 250px;
+    z-index:10; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+
+    /* additional features, can be omitted */
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+#eadd_guest_popup{
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:400px;  
+    width:720px;
+    left: 30%;
+    top: 250px;
+    z-index:10; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+
+    /* additional features, can be omitted */
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+
+}
+#erepeat_popup{
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */    
+
+    background:#FFFFFF;  
+    left: 40%;
+    right:32%;
+    top: 337px;
+    z-index:10; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+    width:350px;
+    /* additional features, can be omitted */
+    border:2px solid #CCC;      
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+#crepeat_popup{
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */    
+
+    background:#FFFFFF;  
+    left: 40%;
+    right:32%;
+    top: 337px;
+    z-index:10; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+    width:350px;
+    /* additional features, can be omitted */
+    border:2px solid #CCC;      
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+#popupBoxClose { 
+    float: right;
+    margin: -1px 4px 0 0;
+
+}
+#ui-datepicker-div{
+    z-index: 100000 !important;;
+}
+.dhx_cal_light{
+    display:none !important;
+}
+.dhx_cal_cover{
+    display:none !important;
+}
+
+/*.rem_add{
+    float: right;
+}*/
+#cadded_list{
+    display: inline-block !important;
+    height: 190px;
+    max-height: 230px !important;
+    overflow: auto;
+    padding: 2px;
+    vertical-align: top;
+    width: 310px !important;
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+#eadded_list{ 
+    display: inline-block !important;
+    height: 190px;
+    max-height: 230px !important;
+    overflow: auto;
+    padding: 2px;
+    vertical-align: top;
+    width: 310px !important;
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+#cemails_list{
+    max-height: 230px !important;
+    display: inline-block !important;
+    width: 330px;
+    height: 190px;
+    vertical-align: top;
+
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+
+}
+.cemailid{
+    margin-left:8px;color: #4986E7;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+.eemailid{
+    margin-left:8px;color: #4986E7;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+.cemailusers{
+    display: inline-block;
+}
+.eemailusers{
+    display: inline-block;
+}
+
+#eemails_list{
+    max-height: 230px !important;
+    display: inline-block !important;
+    width: 330px;
+    height: 190px;
+    vertical-align: top;
+
+    border: 1px solid #a6c9e2;
+    background: #fcfdfd url(images/ui-bg_flat_100_fcfdfd_40x100.png) 50% 50% repeat-x;
+    color: #222222;     
+    padding:10px;  
+    font-size:12px;  
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+    border-radius: 4px;
+}
+/*
+some commentsss
+*/
+.off{background-color: transparent}
+.on{}
+
+#tabs {
+    border:1px solid #ccc; 
+    height:28px; 
+    background:#fff; 
+    padding-left: 15px;
+    padding-top:15px;
+    -moz-box-shadow: inset 0 -2px 2px #dadada;
+    -webkit-box-shadow:inset  0 -2px 2px #dadada;
+    box-shadow: inset 0 -2px 2px #dadada;
+    border-top-left-radius:4px;  
+    border-top-right-radius:4px;
+}
+#tabs li {
+    float:left; 
+    list-style:none; 
+    border-top:1px solid #ccc; 
+    border-left:1px solid #ccc; 
+    border-right:1px solid #ccc; 
+    margin-right:5px; 
+    border-top-left-radius:3px;  
+    border-top-right-radius:3px;
+    -moz-box-shadow: 0 -2px 2px #dadada;
+    -webkit-box-shadow:  0 -2px 2px #dadada;
+    box-shadow: 0 -2px 2px #dadada;
+}
+#tabs li a {
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size:13px;
+    font-weight:bold; 
+    color:#000000; 
+    padding:7px 14px 6px 12px; 
+    display:block; 
+    background:#FFFFFF;  
+    border-top-left-radius:3px; 
+    border-top-right-radius:3px; 
+    text-decoration:none;
+    background: -moz-linear-gradient(top, #ebebeb, white 10%);  
+    background: -webkit-gradient(linear, 0 0, 0 10%, from(#ebebeb), to(white));  
+    border-top: 1px solid white; 
+    text-shadow:-1px -1px 0 #fff;
+    outline:none;
+}
+
+.container{ 
+    clear:both; 	 	 
+}
+#popupCreateBoxClose{
+    float: right;
+    margin: -1px 3px 0 0;   
+}
+#repeatpopupClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+#erepeatpopupClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+
+#cpopupGuestBoxClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+#epopupGuestBoxClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+#leadPreviewClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+#listingPreviewClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+#dealPreviewClose{
+    float: right;
+    margin: -1px 3px 0 0;
+}
+.form_select_fields2{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    height: 20px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 184px;
+}
+.form_select_fields1{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    height: 21px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 100px;
+}
+.form_select_fields3{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    height: 20px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 96px;
+}
+.form_fields1{
+    background: none repeat scroll 0 0 #F9F9FF;
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 201px;
+}
+.form_fields2{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 101px;
+}
+
+
+#tabs {
+    border:1px solid #ccc; 
+    height:28px; 
+    background:#fff; 
+    padding-left: 15px;
+    padding-top:15px;
+    -moz-box-shadow: inset 0 -2px 2px #dadada;
+    -webkit-box-shadow:inset  0 -2px 2px #dadada;
+    box-shadow: inset 0 -2px 2px #dadada;
+    border-top-left-radius:4px;  
+    border-top-right-radius:4px;
+}
+#tabs li {
+    float:left; 
+    list-style:none; 
+    border-top:1px solid #ccc; 
+    border-left:1px solid #ccc; 
+    border-right:1px solid #ccc; 
+    margin-right:5px; 
+    border-top-left-radius:3px;  
+    border-top-right-radius:3px;
+    -moz-box-shadow: 0 -2px 2px #dadada;
+    -webkit-box-shadow:  0 -2px 2px #dadada;
+    box-shadow: 0 -2px 2px #dadada;
+}
+#tabs li a {
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size:13px;
+    font-weight:bold; 
+    color:#000000; 
+    padding:7px 14px 6px 12px; 
+    display:block; 
+    background:#FFFFFF;  
+    border-top-left-radius:3px; 
+    border-top-right-radius:3px; 
+    text-decoration:none;
+    background: -moz-linear-gradient(top, #ebebeb, white 10%);  
+    background: -webkit-gradient(linear, 0 0, 0 10%, from(#ebebeb), to(white));  
+    border-top: 1px solid white; 
+    text-shadow:-1px -1px 0 #fff;
+    outline:none;
+}
+
+
+
+
+#tabs li a.inactive{
+    padding-top:5px;
+    padding-bottom:5px;
+    color:#666666;
+    background: -moz-linear-gradient(top, #dedede, white 75%);  
+    background: -webkit-gradient(linear, 0 0, 0 75%, from(#dedede), to(white));  
+    border-top: 1px solid white; 
+}
+#tabs li a:hover, #tabs li a.inactive:hover {
+    border-top: 1px solid #dedede;
+    color:#000000;
+}
+#cemails_ul{
+    list-style: none;
+}
+#eemail_list{
+    list-style: none;
+}
+#cemail_list_ul{
+    list-style: none;
+}
+#eemail_list_ul{
+    list-style: none;
+}
+#daily_div{
+
+}
+#reminder_ul{
+    list-style: none;
+    padding: 0px;
+    vertical-align: top;
+    margin: 0px;
+}
+#reminder_ul_edit{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+.container{ 
+    clear:both; 	 	 
+}
+
+.agendatabusers{
+    color: #333;
+    padding-top: 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 12px;
+    text-align: left;
+}
+.agendatabdate{
+    color: #333;
+    padding-top: 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 12px;
+    display:inline-block;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.agendatabhour{
+    color: #747473;
+    font-family: arial;
+    font-size: 12px;
+    display:inline-block;
+    text-align: left;
+}
+.agendaeventname{
+    color: #4986E7;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.button_guest{
+    border:1px solid #ff6767; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;
+    font-family:arial, helvetica, sans-serif; 
+    padding: 5px 5px 5px 5px; 
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    font-weight:bold; text-align: center; color: #FFFFFF; 
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff6767), top(#ff0d0d));
+    background-image: -webkit-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -moz-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -ms-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -o-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: linear-gradient(to bottom, #ff6767, #ff0d0d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ff6767, endColorstr=#ff0d0d);
+}
+
+.button_guest:hover{
+    border:1px solid #ff3434; background-color: #ff6767;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff6767), top(#ff0d0d));
+    background-image: -webkit-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -moz-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -ms-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -o-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: linear-gradient(to bottom, #ff6767, #ff0d0d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ff6767, endColorstr=#ff0d0d);
+}
+
+.button_repeat{
+    border:1px solid #25729a; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 5px 5px 5px 5px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #3093c7;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3093c7), to(#1c5a85));
+    background-image: -webkit-linear-gradient(top, #3093c7, #1c5a85);
+    background-image: -moz-linear-gradient(top, #3093c7, #1c5a85);
+    background-image: -ms-linear-gradient(top, #3093c7, #1c5a85);
+    background-image: -o-linear-gradient(top, #3093c7, #1c5a85);
+    background-image: linear-gradient(to bottom, #3093c7, #1c5a85);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093c7, endColorstr=#1c5a85);
+}
+
+.button_repeat:hover{
+    border:1px solid #1c5675; background-color: #26759e;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), top(#133d5b));
+    background-image: -webkit-linear-gradient(top, #26759e, #133d5b);
+    background-image: -moz-linear-gradient(top, #26759e, #133d5b);
+    background-image: -ms-linear-gradient(top, #26759e, #133d5b);
+    background-image: -o-linear-gradient(top, #26759e, #133d5b);
+    background-image: linear-gradient(to bottom, #26759e, #133d5b);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759e, endColorstr=#133d5b);
+}
+.button_creat{
+    border:1px solid #34740e; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 5px 5px 5px 5px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #4ba614;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#4ba614), to(#008c00));
+    background-image: -webkit-linear-gradient(top, #4ba614, #008c00);
+    background-image: -moz-linear-gradient(top, #4ba614, #008c00);
+    background-image: -ms-linear-gradient(top, #4ba614, #008c00);
+    background-image: -o-linear-gradient(top, #4ba614, #008c00);
+    background-image: linear-gradient(to bottom, #4ba614, #008c00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4ba614, endColorstr=#008c00);
+}
+.button_creat:hover{
+    border:1px solid #224b09; background-color: #36780f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#36780f), top(#005900));
+    background-image: -webkit-linear-gradient(top, #36780f, #005900);
+    background-image: -moz-linear-gradient(top, #36780f, #005900);
+    background-image: -ms-linear-gradient(top, #36780f, #005900);
+    background-image: -o-linear-gradient(top, #36780f, #005900);
+    background-image: linear-gradient(to bottom, #36780f, #005900);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#36780f, endColorstr=#005900);
+}
+.button_cancel{
+    border:1px solid #999; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; 
+    padding: 5px 5px 5px 5px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; 
+    background-color: #999;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666));
+    background-image: -webkit-linear-gradient(top, #999, #666);
+    background-image: -moz-linear-gradient(top, #999, #666);
+    background-image: -ms-linear-gradient(top, #999, #666);
+    background-image: -o-linear-gradient(top,#999, #666);
+    background-image: linear-gradient(to bottom, #999, #666);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#999, endColorstr=#666);
+}
+.button_cancel:hover{
+    border:1px solid #999; background-color: #999;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#999), top(#000));
+    background-image: -webkit-linear-gradient(top, #999, #000);
+    background-image: -moz-linear-gradient(top, #999, #000);
+    background-image: -ms-linear-gradient(top, #999, #000);
+    background-image: -o-linear-gradient(top,#999, #000);
+    background-image: linear-gradient(to bottom, #999, #000);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#999, endColorstr=#000);
+}
+
+.calendarsmalldateinput{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width:150px; 
+    float:right;
+}
+.calendarlargedateinput{
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+    margin: 2px;
+    padding: 3px 3px 3px 2px;
+    width: 207px;
+}
+div.modal-box.wrapper {position: absolute;margin: -260px auto;float: none;border: 8px solid #d4d4d4;border-radius:8px;-moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px;font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;z-index: 2000;text-align: left;left: 5%;right: 25%;background-color: #fffeff;}
+div.modal-box div.inside {margin: 3px;padding: 10px;overflow: visible;z-index: 2000;}
+
+/* Each Box's specified width: Required so that they're showing in the middle of the page */
+div#leads_viewings_select_popup.modal-box {
+    width: 1125px;
+    vertical-align: center;
+    right: 20%;
+    top: 500px;
+    position:fixed;
+
+}
+
+
+div.modal-box div.hr {height: 5px;background: url(./images/hr.png) repeat-x;}
+
+#adjust-settings span.button.white.save {margin-left: 95px;}
+
+
+div.modal-box h3 {font-size: 30px;font-weight: bold;margin: 10px 0px 5px;color: #464646;letter-spacing: -1px;}
+div.modal-box .red h3, div.modal-box .yellow h3 {color: #fffeff;margin-top: 0px;}
+div#restricted-content.modal-box h3 {margin-top: 90px;}
+
+div.modal-box p {text-shadow: rgba(255,254,255,0.5) 0 1px 0;color: #7a7a7a;margin: 5px 0px 10px;}
+
+div.modal-box div.clear{height: 1px;clear: both;}
+div.modal-box.centered {text-align: center;}
+
+
+
+div#adjust-settings.modal-box form {margin: 0px auto;width: 350px;}
+
+span.modal-link {cursor: pointer;}
+
+.dataTables_scrollBody{
+    min-height:60px !important;
+}
+

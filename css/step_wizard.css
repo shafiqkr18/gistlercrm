@@ -1,0 +1,156 @@
+
+.swMain .stepContainer {
+	clear: both;
+	margin-bottom:15px;
+}
+.refresh-btn{
+	margin-top:15px;
+}
+
+
+.swMain div.actionBar {
+	clear: both;
+	height: 50px;
+}
+.swMain ul.anchor {
+	display: block;
+	float: left;
+	margin:20px 0;
+	clear: both;
+}
+.swMain ul.anchor li {
+	display: block;
+	padding-right:5px;
+	float: left;
+}
+/* Anchor Element Style */
+.swMain ul.anchor li a {
+	display: block;
+	float: left;
+	margin: 0;
+	height: 60px;
+	width: 272px;
+	text-align:center;
+	color:#333;
+}
+.swMain ul.anchor li a span.large {
+	display: block;
+	font-size:20px;
+	padding-top:5px;
+}
+.swMain ul.anchor li a span.small {
+	display: block;
+	font-size:16px;
+	font-style:italic;
+}
+
+
+
+
+.swMain ul.anchor li a.selected {
+	color: #F8F8F8;
+	background: #f6b638;  /* EA8511 */
+	border: 1px solid #f6b638;
+	cursor: text;
+}
+.swMain ul.anchor li a.selected:hover {
+	color: #F8F8F8;
+	background: #f6b638;
+}
+.swMain ul.anchor li a.done {
+	position: relative;
+	color: #FFF;
+	background: #1ccacc;
+	border: 1px solid #1ccacc;
+	z-index: 99;
+}
+.swMain ul.anchor li a.done:hover {
+	color: #5A5655;
+	background: #1ccacc;
+	border: 1px solid #5A5655;
+}
+.swMain ul.anchor li a.disabled {
+	color: #CCCCCC;
+	background: #F8F8F8;
+	border: 1px solid #CCC;
+	cursor: text;
+}
+.swMain ul.anchor li a.disabled:hover {
+	color: #CCCCCC;
+	background: #F8F8F8;
+}
+.swMain ul.anchor li a.error {
+	color: #6c6c6c !important;
+	background: #f08f75 !important;
+	border: 1px solid #fb3500 !important;
+}
+.swMain ul.anchor li a.error:hover {
+	color: #000 !important;
+}
+.swMain .buttonNext {
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right:5px;
+	text-decoration: none;
+	text-align: center;
+	width: 100px;
+	color: #FFF;
+	outline-style: none;
+	background-color: #5A5655;
+	border: 1px solid #5A5655;
+}
+.swMain .buttonDisabled {
+	color: #F8F8F8 !important;
+	background-color: #CCCCCC !important;
+	border: 1px solid #CCCCCC !important;
+	cursor: text;
+}
+.swMain .buttonPrevious {
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right:5px;
+	text-decoration: none;
+	text-align: center;
+	width: 100px;
+	color: #FFF;
+	outline-style: none;
+	background-color: #5A5655;
+	border: 1px solid #5A5655;
+}
+.swMain .buttonFinish {
+	display: block;
+	float: right;
+	padding: 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 100px;
+	color: #FFF;
+	outline-style: none;
+	background-color: #5A5655;
+	border: 1px solid #5A5655;
+}
+/* Form Styles */
+
+.txtBox {
+	border: 1px solid #CCCCCC;
+	color: #5A5655;
+	padding: 2px;
+	width: 430px;
+}
+.txtBox:focus {
+	border: 1px solid #f6b638;
+}
+.swMain .loader {
+	position: relative;
+	display: none;
+	float: left;
+	margin: 2px 0 0 2px;
+	padding: 8px 10px 8px 40px;
+	border: 1px solid #FFD700;
+	font: bold 13px Verdana, Arial, Helvetica, sans-serif;
+	color: #5A5655;
+	background: #FFF url(../images/loader.gif) no-repeat 5px;
+	z-index: 998;
+}
